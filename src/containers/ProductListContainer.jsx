@@ -1,17 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProductList from 'components/ProductList';
+import { fetchProductsStatic } from 'actions/products';
 
-const ProductListContainer = (props) => {
-  return <ProductList {...props} />;
+class ProductListContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    const { loadProducts, shouldLoadProducts } = props;
+
+    if (shouldLoadProducts) loadProducts();
+  }
+
+  render() {
+    return <ProductList {...this.props} />;
+  }
+}
+
+ProductListContainer.propTypes = {
+  loadProducts: PropTypes.func.isRequired,
+  shouldLoadProducts: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => {
   const { products } = state;
   const { listing } = products;
+  const shouldLoadProducts = listing.length === 0;
   return {
     products: listing,
+    shouldLoadProducts,
   };
 };
 
-export default connect(mapStateToProps)(ProductListContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadProducts: () => dispatch(fetchProductsStatic()),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProductListContainer);

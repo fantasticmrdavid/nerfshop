@@ -7,7 +7,7 @@ const ProductList = ({ products }) => {
   const { Item, List } = styles;
   return (
     <List>
-      { products.map(p => <Item><Product {...p} key={`product_${p.id}`} type="list" /></Item>) }
+      { products.map(p => <Item key={`product_${p.id}`}><Product {...p} type="list" /></Item>) }
     </List>
   );
 };

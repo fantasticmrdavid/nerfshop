@@ -40,7 +40,7 @@ Product.propTypes = {
   id: PropTypes.string.isRequired,
   images: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   type: PropTypes.string,
 };
 

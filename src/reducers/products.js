@@ -9,7 +9,7 @@ const reducers = {
   [PRODUCT_LISTING_UPDATED]: (state, action) => {
     return {
       ...state,
-      listing: action.listing,
+      listing: action.products,
     };
   },
 };
