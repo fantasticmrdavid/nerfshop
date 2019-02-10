@@ -6,7 +6,9 @@ export default [
     price: 55,
     description: '',
     color: 'phantomCorps',
-    images: [],
+    images: [
+      '/assets/images/products/rpc1/01.jpg ',
+    ],
   },
   {
     id: 'rpc2',
@@ -15,6 +17,8 @@ export default [
     price: 159,
     description: '',
     color: 'phantomCorps',
-    images: [],
+    images: [
+      '/assets/images/products/rpc2/01.jpg ',
+    ],
   },
 ];

@@ -21,6 +21,7 @@
   "dependencies": {
     "babel-core": "6.26.3",
     "babel-plugin-ramda": "1.6.2",
+    "copy-webpack-plugin": "4.6.0",
     "es6-promise": "4.1.1",
     "history": "4.7.2",
     "html-webpack-plugin": "2.30.1",

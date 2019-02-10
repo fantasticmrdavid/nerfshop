@@ -4,6 +4,8 @@ const path = require('path');
 const BUILD_DIR = path.resolve(__dirname, 'public');
 const APP_DIR = path.resolve(__dirname, 'src');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const {
   NODE_ENV,
 } = process.env;
@@ -53,5 +55,8 @@ module.exports = {
         NODE_ENV: JSON.stringify(NODE_ENV),
       },
     }),
+    new CopyWebpackPlugin([
+      { from: `${APP_DIR}/assets/`, to: 'assets/' }
+    ])
   ],
 };
