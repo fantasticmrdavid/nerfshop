@@ -1,13 +1,10 @@
 import { combineReducers } from 'redux';
-import { RESET_APP } from 'Constants';
+import { connectRouter } from 'connected-react-router';
 import products from './products';
 
-const appReducers = combineReducers({
+const reducers = history => combineReducers({
   products,
+  router: connectRouter(history),
 });
-
-const reducers = (state, action) => {
-  return appReducers(action.type === RESET_APP ? undefined : state, action);
-};
 
 export default reducers;

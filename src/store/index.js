@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'connected-react-router';
 import reducers from 'reducers';
 
 const { NODE_ENV } = process.env;
@@ -22,6 +22,6 @@ const createStoreWithMiddleware = composeEnhancersClient(
 )(createStore);
 
 // Create store with reducers and initial state
-const store = createStoreWithMiddleware(reducers);
+const store = createStoreWithMiddleware(reducers(history));
 
 export { store, history };
