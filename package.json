@@ -5,8 +5,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development && webpack-dev-server",
-    "startpc": "set NODE_ENV=development&& webpack-dev-server",
+    "start": "NODE_ENV=development && webpack-dev-server --color",
+    "startpc": "set NODE_ENV=development&& webpack-dev-server --color",
     "test": "chmod +x ./test.sh; ./test.sh",
     "lint": "./node_modules/.bin/eslint -c .eslintrc.json src/**/*.js  src/**/*.jsx",
     "build": "NODE_ENV=production && webpack"
@@ -19,13 +19,15 @@
     "node": "8.9.4"
   },
   "dependencies": {
+    "acorn": "6.1.0",
+    "ajv": "6.9.1",
     "babel-core": "6.26.3",
     "babel-plugin-ramda": "1.6.2",
     "connected-react-router": "6.3.0",
     "copy-webpack-plugin": "4.6.0",
     "es6-promise": "4.1.1",
     "history": "4.7.2",
-    "html-webpack-plugin": "2.30.1",
+    "html-webpack-plugin": "3.2.0",
     "isomorphic-fetch": "2.2.1",
     "prop-types": "15.6.2",
     "ramda": "0.25.0",
@@ -37,21 +39,22 @@
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
     "styled-components": "2.2.3",
-    "webpack": "3.8.1"
+    "webpack": "4.29.3"
   },
   "devDependencies": {
     "babel-eslint": "8.0.2",
-    "babel-loader": "7.1.2",
+    "babel-loader": "7.1.5",
     "babel-preset-env": "1.6.0",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "16.1.0",
-    "eslint-loader": "1.9.0",
+    "eslint-loader": "2.1.2",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-react": "7.4.0",
     "eslint-plugin-styled-components-config": "0.0.2",
-    "webpack-dev-server": "2.11.3"
+    "webpack-cli": "3.2.3",
+    "webpack-dev-server": "3.1.14"
   }
 }

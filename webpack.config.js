@@ -17,6 +17,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
+  mode: NODE_ENV === 'production' ? 'production' : 'development',
   entry: `${APP_DIR}/index.jsx`,
   output: {
     path: BUILD_DIR,
@@ -32,7 +33,7 @@ module.exports = {
     },
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.(js|jsx)$/,
         loaders: ['babel-loader', 'eslint-loader'],
