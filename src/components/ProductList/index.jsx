@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ProductContainer from 'containers/ProductContainer';
 import * as styles from './styles';
 
 const ProductList = ({ products }) => {
-  const { Item, List } = styles;
+  const {
+    Item,
+    List,
+    Note,
+  } = styles;
   return (
-    <List>
-      { products.map(p => <Item key={`product_${p.id}`}><ProductContainer {...p} type="list" /></Item>) }
-    </List>
+    <Fragment>
+      <List>
+        { products.map(p => <Item key={`product_${p.id}`}><ProductContainer {...p} type="list" /></Item>) }
+      </List>
+      <Note>All prices in Australian Dollars (AUD)</Note>
+    </Fragment>
   );
 };
 

@@ -9,3 +9,8 @@ export const List = styled.ul`
 
 export const Item = styled.li`
 `;
+
+export const Note = styled.div`
+  text-align: center;
+  padding: 2em;
+`;
