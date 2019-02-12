@@ -3,24 +3,10 @@ const theme = {
   colorWhite: '#fff',
   colorRed: 'red',
   colorGreen: 'green',
-  colorGrey: '#aaa',
-  colorLightGrey: '#f7f7f7',
-
-  colorPrimaryLight: '#2981FB',
-  colorPrimary: '#0056C7',
-  colorSecondaryLight: '#fbd0d2',
-  colorSecondary: '#ED1C24',
-  colorSecondaryDark: '#a50d12',
-  colorPlaceholderContent: '#ccc',
+  colorGrey: '#ddd',
+  colorCharcoal: '#333',
 
   colorFont: '#333',
-
-  colorDivider: '#ddd',
-
-  navHeight: '65px',
-  gutter: '1.5rem',
-  halfGutter: '0.75rem',
-  quarterGutter: '0.375rem',
 
   fontBody: '\'Roboto\', Arial, Helvetica, sans-serif',
 

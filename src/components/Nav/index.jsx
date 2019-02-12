@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import * as styles from './styles';
 
 export default () => {
-  const { Logo } = styles;
+  const {
+    Logo,
+    Nav,
+    Spacer,
+  } = styles;
+
   return (
-    <nav>
-      <Logo>RivalShop</Logo>
-    </nav>
+    <Fragment>
+      <Spacer />
+      <Nav>
+        <Logo>RivalShop</Logo>
+      </Nav>
+    </Fragment>
   );
 };
