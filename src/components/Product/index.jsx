@@ -10,6 +10,7 @@ const Product = (props) => {
     firingMechanism,
     id,
     images,
+    index,
     name,
     onSelect,
     price,
@@ -34,7 +35,7 @@ const Product = (props) => {
   } = styles;
 
   return (
-    <Container type={type} selected={selected}>
+    <Container type={type} selected={selected} index={index}>
       <Image src={images[0]} />
       <Content>
         <TopRow>
@@ -65,6 +66,7 @@ Product.propTypes = {
   firingMechanism: PropTypes.string,
   id: PropTypes.string.isRequired,
   images: PropTypes.array.isRequired,
+  index: PropTypes.number,
   name: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
   price: PropTypes.number.isRequired,

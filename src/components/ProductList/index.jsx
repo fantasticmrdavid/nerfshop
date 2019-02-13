@@ -12,7 +12,7 @@ const ProductList = ({ products }) => {
   return (
     <Fragment>
       <List>
-        { products.map(p => <Item key={`product_${p.id}`}><ProductContainer {...p} type="list" /></Item>) }
+        { products.map((p, i) => <Item key={`product_${p.id}`}><ProductContainer {...p} index={i} type="list" /></Item>) }
       </List>
       <Note>All prices in Australian Dollars (AUD)</Note>
     </Fragment>

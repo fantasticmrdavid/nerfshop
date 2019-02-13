@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
+import { fadeIn } from 'styles/animations';
 
 export const Actions = styled.div`
   display: flex;
@@ -55,6 +56,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 275px;
+  opacity: 0;
+  animation: ${fadeIn} 0.3s normal linear;
+  animation-fill-mode: forwards;
+  animation-delay: ${props => `${props.index / 10}s`};
 `;
 
 export const Content = styled.div`

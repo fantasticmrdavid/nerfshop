@@ -12,6 +12,8 @@ export default [
       '/assets/images/products/rpc01/01.jpg ',
     ],
     firingMechanism: 'spring',
+    priming: 'Manual',
+    loading: 'Internal Magazine',
   },
   {
     id: 'rpc04',
@@ -26,6 +28,8 @@ export default [
       '/assets/images/products/rpc04/01.jpg ',
     ],
     firingMechanism: 'spring',
+    priming: 'Manual',
+    loading: 'External Magazine',
   },
   {
     id: 'rpc02',
@@ -40,6 +44,8 @@ export default [
       '/assets/images/products/rpc02/01.jpg ',
     ],
     firingMechanism: 'spring',
+    priming: 'Manual',
+    loading: 'Internal Magazine',
   },
   {
     id: 'rpc03',
@@ -54,6 +60,8 @@ export default [
       '/assets/images/products/rpc03/01.jpg ',
     ],
     firingMechanism: 'motorised',
+    priming: 'Manual',
+    loading: 'External Magazine',
   },
   {
     id: 'rb01',
@@ -68,6 +76,8 @@ export default [
       '/assets/images/products/rb01/01.jpg ',
     ],
     firingMechanism: 'motorised',
+    priming: 'Full-Automatic',
+    loading: 'Hopper-fed',
   },
   {
     id: 'rr01',
@@ -82,5 +92,7 @@ export default [
       '/assets/images/products/rr01/01.jpg ',
     ],
     firingMechanism: 'motorised',
+    priming: 'Semi-Automatic',
+    loading: 'External Magazine',
   },
 ];
