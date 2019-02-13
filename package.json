@@ -7,9 +7,10 @@
   "scripts": {
     "start": "NODE_ENV=development && webpack-dev-server --color",
     "startpc": "set NODE_ENV=development&& webpack-dev-server --color",
+    "startpcprod": "set NODE_ENV=production&& webpack-dev-server --color",
     "test": "chmod +x ./test.sh; ./test.sh",
     "lint": "./node_modules/.bin/eslint -c .eslintrc.json src/**/*.js  src/**/*.jsx",
-    "build": "NODE_ENV=production && webpack"
+    "build": "NODE_ENV=production && webpack --color"
   },
   "repository": {
     "type": "git",
