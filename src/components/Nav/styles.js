@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   z-index: 1;
   display: flex;
   padding: 1em 2em;
-  background-color: ${theme.colorWhite};
+  background-color: rgba(255, 255, 255, 0.7);
   box-shadow: ${theme.dropShadow};
 `;
 
