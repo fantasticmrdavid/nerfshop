@@ -14,6 +14,9 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: `${APP_DIR}/index.html`,
   filename: 'index.html',
   inject: 'body',
+  minify: {
+      collapseWhitespace: true
+  },
 });
 
 module.exports = {
@@ -22,7 +25,8 @@ module.exports = {
   output: {
     path: BUILD_DIR,
     publicPath: '/',
-    filename: 'assets/bundle.js',
+    filename: 'assets/js/[name]-bundle.[chunkhash].js',
+    chunkFilename: 'assets/js/[name]-chunk.js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -60,4 +64,16 @@ module.exports = {
       { from: `${APP_DIR}/assets/`, to: 'assets/' }
     ])
   ],
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 };
