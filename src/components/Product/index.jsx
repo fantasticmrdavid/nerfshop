@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Cta from 'components/Cta';
+import FeatureIcon from 'components/FeatureIcon';
 import * as styles from './styles';
 
 const Product = (props) => {
@@ -14,19 +15,17 @@ const Product = (props) => {
     name,
     onSelect,
     price,
+    priming,
     selected,
     type,
   } = props;
 
   const {
     Actions,
-    Capacity,
-    CapacityContent,
     Container,
     Content,
     Description,
     Features,
-    FiringMechanism,
     Image,
     LargePriceText,
     Name,
@@ -44,10 +43,8 @@ const Product = (props) => {
             <Price>$<LargePriceText>{price}</LargePriceText></Price>
           </div>
           <Features>
-            <Capacity>
-              <CapacityContent capacity={capacity}>{capacity}</CapacityContent>
-            </Capacity>
-            <FiringMechanism type={firingMechanism} />
+            <FeatureIcon type="capacity" capacity={capacity} />
+            <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} />
           </Features>
         </TopRow>
         <Description>{description}</Description>
@@ -70,6 +67,7 @@ Product.propTypes = {
   name: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
   price: PropTypes.number.isRequired,
+  priming: PropTypes.string,
   selected: PropTypes.bool,
   type: PropTypes.string,
 };

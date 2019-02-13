@@ -1,54 +1,8 @@
 import styled from 'styled-components';
-import theme from 'styles/theme';
-import { fadeIn } from 'styles/animations';
 
 export const Actions = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-export const Capacity = styled.div`
-  position: relative;
-  width: 30px;
-  height: 30px;
-  border: 2px solid ${theme.colorBlack};
-  border-radius: 50%;
-
-  &:before {
-    position: absolute;
-    content: "";
-    width: 38px;
-    height: 1px;
-    top: calc(50% - 1px);
-    left: calc(50% - 19px);
-    background-color: ${theme.colorBlack};
-  }
-
-  &:after {
-    position: absolute;
-    content: "";
-    width: 1px;
-    height: 38px;
-    top: calc(50% - 19px);
-    left: calc(50% - 1px);
-    background-color: ${theme.colorBlack};
-  }
-`;
-
-export const CapacityContent = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 22px;
-  height: 22px;
-  top: calc(50% - 12px);
-  left: calc(50% - 12px);
-  border: 1px solid ${theme.colorBlack};
-  border-radius: 50%;
-  background-color: ${theme.colorWhite};
-  font-size: ${(props) => { return props.capacity > 99 ? '0.7rem' : '0.8rem'; }};
-  z-index: 1;
 `;
 
 export const Container = styled.div`
@@ -56,10 +10,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 275px;
-  opacity: 0;
-  animation: ${fadeIn} 0.3s normal linear;
-  animation-fill-mode: forwards;
-  animation-delay: ${props => `${props.index / 10}s`};
 `;
 
 export const Content = styled.div`
@@ -81,13 +31,6 @@ export const Features = styled.div`
   grid-column-gap: 2px;
   justify-content: flex-end;
   align-items: center;
-`;
-
-export const FiringMechanism = styled.div`
-  width: ${props => `${props.type === 'spring' ? 32 : 38}px`};
-  height: ${props => `${props.type === 'spring' ? 32 : 38}px`};
-  background: ${props => `url(/assets/images/${props.type}_icon.png) center center no-repeat`};
-  background-size: contain;
 `;
 
 export const Image = styled.div`
