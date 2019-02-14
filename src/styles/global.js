@@ -8,7 +8,7 @@ injectGlobal`
   body {
     font-family: ${theme.fontBody};
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.2;
   }
 `;

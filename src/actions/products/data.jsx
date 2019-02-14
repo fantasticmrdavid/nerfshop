@@ -1,3 +1,5 @@
+import React, { Fragment } from 'react';
+
 export default [
   {
     id: 'rpc01',
@@ -5,15 +7,16 @@ export default [
     type: 'blaster',
     series: 'Rival',
     price: 55,
-    description: '',
+    description: <Fragment>The Kronos is regarded as the best Nerf pistol available on the market, packing 5 high precision Rival rounds that outperform most modded blasters out of the box.<br /><br />{'One of the most compact and versatile blasters made, it\'s perfect for your local Nerf war or office skirmish.'}</Fragment>,
     color: 'phantomCorps',
     capacity: 5,
     images: [
       '/assets/images/products/rpc01/01.jpg ',
     ],
     firingMechanism: 'Spring-powered',
-    priming: 'Manual',
+    priming: 'Single-fire',
     loadingMechanism: 'Internal Magazine',
+    slamFire: false,
   },
   {
     id: 'rpc04',
@@ -21,15 +24,16 @@ export default [
     type: 'blaster',
     series: 'Rival',
     price: 89,
-    description: '',
+    description: <Fragment>{'The Helios sets the standard for the Rival line\'s signature range, accuracy, and reliability. It features an auto-retracting bolt-action prime that loads up to 7 rounds with the included magazine (also compatible with Rival 12 round magazines).'}<br /><br />Lightweight and ergonomic, it is a trusty favourite among veterans and newcomers alike.</Fragment>,
     color: 'phantomCorps',
     capacity: 7,
     images: [
       '/assets/images/products/rpc04/01.jpg ',
     ],
     firingMechanism: 'Spring-powered',
-    priming: 'Manual',
+    priming: 'Single-fire',
     loadingMechanism: 'External Magazine',
+    slamFire: false,
   },
   {
     id: 'rpc02',
@@ -37,15 +41,16 @@ export default [
     type: 'blaster',
     series: 'Rival',
     price: 159,
-    description: '',
+    description: <Fragment>{'The Hades is the ultimate spring-powered Rival blaster packing a huge 60-round internal magazine, ensuring you\'ll never need to reload during battle again.'}<br /><br />Featuring pump action and slam-fire, this is THE blaster of choice for players who enjoy saturating the battlefield or mowing down zombie hordes without fiddling with magazines or batteries.</Fragment>,
     color: 'phantomCorps',
     capacity: 60,
     images: [
       '/assets/images/products/rpc02/01.jpg ',
     ],
     firingMechanism: 'Spring-powered',
-    priming: 'Manual',
+    priming: 'Single-fire',
     loadingMechanism: 'Internal Magazine',
+    slamFire: true,
   },
   {
     id: 'rpc03',
@@ -62,6 +67,7 @@ export default [
     firingMechanism: 'Motorised',
     priming: 'Semi-Automatic',
     loadingMechanism: 'External Magazine',
+    slamFire: false,
   },
   {
     id: 'rb01',
@@ -78,6 +84,7 @@ export default [
     firingMechanism: 'Motorised',
     priming: 'Full-Automatic',
     loadingMechanism: 'Hopper-fed',
+    slamFire: false,
   },
   {
     id: 'rr01',
@@ -94,5 +101,6 @@ export default [
     firingMechanism: 'Motorised',
     priming: 'Semi-Automatic',
     loadingMechanism: 'External Magazine',
+    slamFire: false,
   },
 ];

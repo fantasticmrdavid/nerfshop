@@ -11,7 +11,7 @@ export const Drawer = styled.aside`
   z-index: 2;
   display: flex;
   padding: 1em 2em;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   opacity: ${(props) => { return props.active ? 1 : 0; }};
   border: 1px solid ${theme.borderColor};
   transition: 0.2s;

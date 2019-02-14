@@ -55,7 +55,10 @@ const ProductDetails = (props) => {
 
 ProductDetails.propTypes = {
   capacity: PropTypes.number,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]).isRequired,
   firingMechanism: PropTypes.string,
   id: PropTypes.string.isRequired,
   images: PropTypes.array.isRequired,
