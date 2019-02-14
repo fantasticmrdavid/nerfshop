@@ -4,57 +4,48 @@ import Cta from 'components/Cta';
 import FeatureIcon from 'components/FeatureIcon';
 import * as styles from './styles';
 
-const Product = (props) => {
+const ProductDetails = (props) => {
   const {
-    blurred,
     capacity,
+    description,
     firingMechanism,
     id,
     images,
-    index,
     loadingMechanism,
     name,
-    onSelect,
+    onClose,
     price,
     priming,
-    selected,
-    type,
   } = props;
 
   const {
     Actions,
     Container,
     Content,
+    Description,
     Features,
     Image,
     LargePriceText,
     Name,
     Price,
-    TopRow,
+    Row,
   } = styles;
 
   return (
-    <Container
-      id={`product_${id}`}
-      type={type}
-      blurred={blurred}
-      selected={selected}
-      index={index}
-    >
+    <Container>
       <Image src={images[0]} />
       <Content>
-        <TopRow>
-          <div>
-            <Name>{name}</Name>
-            <Price>$<LargePriceText>{price}</LargePriceText></Price>
-          </div>
-          <Features>
-            <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} />
-            <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} />
-          </Features>
-        </TopRow>
+        <Row>
+          <Name>{name}</Name>
+          <Price>$<LargePriceText>{price}</LargePriceText>.00</Price>
+        </Row>
+        <Features>
+          <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} showLabel />
+          <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} showLabel />
+        </Features>
+        <Description>{description}</Description>
         <Actions>
-          <Cta onClick={onSelect}>Details</Cta>
+          <Cta onClick={onClose}>Close</Cta>
           <Cta id={id} primary>Add to Cart</Cta>
         </Actions>
       </Content>
@@ -62,20 +53,17 @@ const Product = (props) => {
   );
 };
 
-Product.propTypes = {
-  blurred: PropTypes.bool,
+ProductDetails.propTypes = {
   capacity: PropTypes.number,
+  description: PropTypes.string.isRequired,
   firingMechanism: PropTypes.string,
   id: PropTypes.string.isRequired,
   images: PropTypes.array.isRequired,
-  index: PropTypes.number,
   loadingMechanism: PropTypes.string,
   name: PropTypes.string.isRequired,
-  onSelect: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   price: PropTypes.number.isRequired,
   priming: PropTypes.string,
-  selected: PropTypes.bool,
-  type: PropTypes.string,
 };
 
-export default Product;
+export default ProductDetails;

@@ -3,12 +3,14 @@ import theme from 'styles/theme';
 
 export const Container = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
 `;
 
 export const Capacity = styled.div`
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 2px solid ${theme.colorBlack};
   border-radius: 50%;
 
@@ -54,6 +56,10 @@ export const FiringMechanism = styled.div`
   height: ${props => `${props.type === 'spring' ? 32 : 38}px`};
   background: ${props => `url(/assets/images/${props.type.toLowerCase()}_icon.png) center center no-repeat`};
   background-size: contain;
+`;
+
+export const Label = styled.div`
+  margin-left: 0.5em;
 `;
 
 export const TooltipContainer = styled.div`

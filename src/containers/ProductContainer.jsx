@@ -11,8 +11,10 @@ const ProductContainer = (props) => {
 const mapStateToProps = (state, ownProps) => {
   const { products } = state;
   const { selected } = products;
+  const isSelected = path(['id'], selected) === ownProps.id;
   return {
-    expanded: path(['id'], selected) === ownProps.id,
+    blurred: !!path(['id'], selected) && !isSelected,
+    selected: isSelected,
   };
 };
 

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Actions = styled.div`
   display: flex;
+  width: 100%;
   justify-content: space-between;
 `;
 
@@ -9,8 +10,7 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 275px;
-  opacity: ${(props) => { return props.blurred ? 0.5 : 1; }};
+  width: 100%;
 `;
 
 export const Content = styled.div`
@@ -23,18 +23,19 @@ export const Content = styled.div`
   box-sizing: border-box;
 `;
 
+export const Description = styled.div`
+`;
+
 export const Features = styled.div`
   display: grid;
-  grid-template-columns: 38px 38px;
-  grid-column-gap: 2px;
-  justify-content: flex-end;
-  align-items: center;
+  grid-row-gap: 5px;
+  padding: 1em 0;
 `;
 
 export const Image = styled.div`
   position: relative;
   width: 100%;
-  height: 135px;
+  height: 200px;
   margin: 1em 0;
   background-image: ${props => `url(${props.src})`};
   background-size: contain;
@@ -44,20 +45,21 @@ export const Image = styled.div`
 
 export const LargePriceText = styled.span`
   position: relative;
-  top: -3px;
-  font-size: 1.5rem;
+  top: -5px;
+  font-size: 2rem;
 `;
 
 export const Name = styled.div`
-  font-size: 1.25rem;
+  font-size: 1.75rem;
 `;
 
 export const Price = styled.div`
   display: flex;
   align-items: flex-start;
+  font-size: 1.2rem;
 `;
 
-export const TopRow = styled.div`
+export const Row = styled.div`
   display: flex;
   justify-content: space-between;
 `;

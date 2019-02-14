@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import Tooltip from 'components/Tooltip';
 import * as styles from './styles';
 
-const tooltipContent = (props) => {
+const labelContent = (props) => {
   const {
     capacity,
     firingMechanism,
+    loadingMechanism,
     priming,
     type,
   } = props;
 
-  if (type === 'capacity') return `${capacity} round capacity`;
+  if (type === 'capacity') return `${capacity} round capacity (${loadingMechanism})`;
   if (type === 'firingMechanism') return `${firingMechanism} blaster${firingMechanism === 'Motorised' ? ` (${priming})` : ''}`;
   return null;
 };
@@ -40,6 +41,7 @@ class FeatureIcon extends Component {
     const {
       capacity,
       firingMechanism,
+      showLabel,
       type,
     } = this.props;
 
@@ -50,6 +52,7 @@ class FeatureIcon extends Component {
       CapacityContent,
       Container,
       FiringMechanism,
+      Label,
       TooltipContainer,
     } = styles;
 
@@ -64,9 +67,13 @@ class FeatureIcon extends Component {
           </Capacity>)
         }
         { type === 'firingMechanism' && <FiringMechanism type={firingMechanism} /> }
-        <TooltipContainer active={hovered}>
-          <Tooltip>{tooltipContent(this.props)}</Tooltip>
-        </TooltipContainer>
+        { showLabel ?
+          <Label>{labelContent(this.props)}</Label>
+          :
+          <TooltipContainer active={hovered}>
+            <Tooltip>{labelContent(this.props)}</Tooltip>
+          </TooltipContainer>
+        }
       </Container>
     );
   }
@@ -75,6 +82,7 @@ class FeatureIcon extends Component {
 FeatureIcon.propTypes = {
   capacity: PropTypes.number,
   firingMechanism: PropTypes.string,
+  showLabel: PropTypes.bool,
   type: PropTypes.string,
 };
 

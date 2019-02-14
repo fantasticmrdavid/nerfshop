@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from 'styles/theme';
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +9,6 @@ export const Container = styled.div`
 
 export const Content = styled.main`
   width: 100%;
-  max-width: 900px;
+  max-width: ${theme.maxWidthDesktop};
   padding-bottom: 3em;
 `;

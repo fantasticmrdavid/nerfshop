@@ -1,5 +1,6 @@
 import {
   PRODUCT_LISTING_UPDATED,
+  PRODUCT_DESELECTED,
   PRODUCT_SELECTED,
 } from 'Constants';
 import { createReducer } from 'helpers/reducers';
@@ -20,6 +21,12 @@ const reducers = {
     return {
       ...state,
       selected: action.product,
+    };
+  },
+  [PRODUCT_DESELECTED]: (state) => {
+    return {
+      ...state,
+      selected: {},
     };
   },
 };
