@@ -1,66 +1,85 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Cta from 'components/Cta';
 import FeatureIcon from 'components/FeatureIcon';
 import * as styles from './styles';
 
-const Product = (props) => {
-  const {
-    blurred,
-    capacity,
-    firingMechanism,
-    id,
-    images,
-    index,
-    loadingMechanism,
-    name,
-    onSelect,
-    price,
-    priming,
-    selected,
-    type,
-  } = props;
+class Product extends Component {
+  constructor(props) {
+    super(props);
 
-  const {
-    Actions,
-    Container,
-    Content,
-    Features,
-    Image,
-    LargePriceText,
-    Name,
-    Price,
-    TopRow,
-  } = styles;
+    this.boundShow = this.show.bind(this);
+    this.state = {
+      imagesReady: false,
+    };
+  }
 
-  return (
-    <Container
-      id={`product_${id}`}
-      type={type}
-      blurred={blurred}
-      selected={selected}
-      index={index}
-    >
-      <Image src={images[0]} />
-      <Content>
-        <TopRow>
-          <div>
-            <Name>{name}</Name>
-            <Price>$<LargePriceText>{price}</LargePriceText></Price>
-          </div>
-          <Features>
-            <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} />
-            <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} />
-          </Features>
-        </TopRow>
-        <Actions>
-          <Cta onClick={onSelect}>Details</Cta>
-          <Cta id={id} primary>Add to Cart</Cta>
-        </Actions>
-      </Content>
-    </Container>
-  );
-};
+  show() {
+    this.setState({ imagesReady: true });
+  }
+
+  render() {
+    const {
+      blurred,
+      capacity,
+      firingMechanism,
+      id,
+      images,
+      index,
+      loadingMechanism,
+      name,
+      onSelect,
+      price,
+      priming,
+      selected,
+      type,
+    } = this.props;
+
+    const { imagesReady } = this.state;
+
+    const {
+      Actions,
+      Container,
+      Content,
+      Features,
+      Image,
+      ImagePreloader,
+      LargePriceText,
+      Name,
+      Price,
+      TopRow,
+    } = styles;
+
+    return (
+      <Container
+        id={`product_${id}`}
+        type={type}
+        blurred={blurred}
+        selected={selected}
+        index={index}
+      >
+        <Image src={images[0]} ready={imagesReady} onClick={onSelect} />
+        <ImagePreloader onLoad={this.boundShow} src={images[0]} ready={imagesReady} />
+        <Content>
+          <TopRow>
+            <div>
+              <Name>{name}</Name>
+              <Price>$<LargePriceText>{price}</LargePriceText></Price>
+            </div>
+            <Features>
+              <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} />
+              <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} />
+            </Features>
+          </TopRow>
+          <Actions>
+            <Cta onClick={onSelect}>Details</Cta>
+            <Cta id={id} primary>Add to Cart</Cta>
+          </Actions>
+        </Content>
+      </Container>
+    );
+  }
+}
 
 Product.propTypes = {
   blurred: PropTypes.bool,

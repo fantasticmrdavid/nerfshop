@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { fadeIn } from 'styles/animations';
 
 export const Actions = styled.div`
   display: flex;
@@ -11,6 +12,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 275px;
   opacity: ${(props) => { return props.blurred ? 0.5 : 1; }};
+  transition: 0.3s;
 `;
 
 export const Content = styled.div`
@@ -33,13 +35,24 @@ export const Features = styled.div`
 
 export const Image = styled.div`
   position: relative;
+  display: ${(props) => { return props.ready ? 'block' : 'none'; }};
   width: 100%;
   height: 135px;
   margin: 1em 0;
+  cursor: pointer;
   background-image: ${props => `url(${props.src})`};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  opacity: 0;
+  animation: ${fadeIn} 0.3s normal linear;
+  animation-fill-mode: forwards;
+`;
+
+export const ImagePreloader = styled.img`
+  display: block;
+  width: 0px;
+  height: ${(props) => { return props.ready ? '0px' : '135px'; }};
 `;
 
 export const LargePriceText = styled.span`
