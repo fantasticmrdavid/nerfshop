@@ -16,6 +16,7 @@ const ProductDetails = (props) => {
     onClose,
     price,
     priming,
+    slamFire,
   } = props;
 
   const {
@@ -42,6 +43,9 @@ const ProductDetails = (props) => {
         <Features>
           <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} showLabel />
           <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} showLabel />
+          { slamFire && <FeatureIcon type="slamFire" showLabel /> }
+          { priming === 'Fully Automatic' && <FeatureIcon type="automatic" showLabel /> }
+          { priming === 'Semi-Automatic' && <FeatureIcon type="semiAutomatic" showLabel /> }
         </Features>
         <Description>{description}</Description>
         <Actions>
@@ -67,6 +71,7 @@ ProductDetails.propTypes = {
   onClose: PropTypes.func.isRequired,
   price: PropTypes.number.isRequired,
   priming: PropTypes.string,
+  slamFire: PropTypes.bool,
 };
 
 export default ProductDetails;

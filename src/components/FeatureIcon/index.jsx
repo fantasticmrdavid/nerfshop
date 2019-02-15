@@ -7,13 +7,16 @@ const labelContent = (props) => {
   const {
     capacity,
     firingMechanism,
-    loadingMechanism,
     priming,
+    showLabel,
     type,
   } = props;
 
-  if (type === 'capacity') return `${capacity} round capacity (${loadingMechanism})`;
-  if (type === 'firingMechanism') return `${firingMechanism} blaster${firingMechanism === 'Motorised' ? ` (${priming})` : ''}`;
+  if (type === 'automatic') return 'Fully Automatic';
+  if (type === 'semiAutomatic') return 'Semi-Automatic';
+  if (type === 'capacity') return `${capacity} round capacity`;
+  if (type === 'firingMechanism') return `${firingMechanism} blaster${!showLabel && firingMechanism === 'Motorised' ? ` (${priming})` : ''}`;
+  if (type === 'slamFire') return 'Slam-fire capable';
   return null;
 };
 
@@ -48,11 +51,14 @@ class FeatureIcon extends Component {
     const { hovered } = this.state;
 
     const {
+      Automatic,
       Capacity,
       CapacityContent,
       Container,
       FiringMechanism,
       Label,
+      SemiAuto,
+      SlamFire,
       TooltipContainer,
     } = styles;
 
@@ -61,12 +67,15 @@ class FeatureIcon extends Component {
         onMouseEnter={this.boundHoverOn}
         onMouseLeave={this.boundHoverOff}
       >
+        { type === 'automatic' && <Automatic /> }
         { type === 'capacity' && (
           <Capacity>
             <CapacityContent capacity={capacity}>{capacity}</CapacityContent>
           </Capacity>)
         }
         { type === 'firingMechanism' && <FiringMechanism type={firingMechanism} /> }
+        { type === 'semiAutomatic' && <SemiAuto /> }
+        { type === 'slamFire' && <SlamFire /> }
         { showLabel ?
           <Label>{labelContent(this.props)}</Label>
           :

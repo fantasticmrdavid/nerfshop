@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
 
+export const Automatic = styled.div`
+  width: 38px;
+  height: 38px;
+  background: url(/assets/images/automatic_icon.png) center center no-repeat;
+  background-size: contain;
+`;
+
 export const Container = styled.div`
   position: relative;
   display: flex;
@@ -60,6 +67,20 @@ export const FiringMechanism = styled.div`
 
 export const Label = styled.div`
   margin-left: 0.5em;
+`;
+
+export const SemiAuto = styled.div`
+  width: 38px;
+  height: 38px;
+  background: url(/assets/images/semi-automatic_icon.png) center center no-repeat;
+  background-size: contain;
+`;
+
+export const SlamFire = styled.div`
+  width: 38px;
+  height: 38px;
+  background: url(/assets/images/slamfire_icon.png) center center no-repeat;
+  background-size: contain;
 `;
 
 export const TooltipContainer = styled.div`
