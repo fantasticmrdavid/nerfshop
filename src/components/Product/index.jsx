@@ -72,7 +72,7 @@ class Product extends Component {
             </Features>
           </TopRow>
           <Actions>
-            <Cta onClick={onSelect}>Details</Cta>
+            <Cta focused={selected} onClick={onSelect}>Details</Cta>
             <Cta id={id} primary>Add to Cart</Cta>
           </Actions>
         </Content>
