@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Nav from 'components/Nav';
 import Footer from 'components/Footer';
+import NavContainer from 'containers/NavContainer';
 import ProductDrawerContainer from 'containers/ProductDrawerContainer';
 import * as styles from './styles';
 
@@ -17,7 +17,7 @@ const Template = ({ children }) => {
 
   return (
     <Container>
-      <Nav />
+      <NavContainer />
       <Content>
         {children}
       </Content>

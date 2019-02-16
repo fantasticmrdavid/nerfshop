@@ -1,44 +1,31 @@
 import styled from 'styled-components';
 import { fadeIn } from 'styles/animations';
 
-export const Actions = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const Container = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
-  width: 275px;
+  width: 100%;
   opacity: ${(props) => { return props.blurred ? 0.5 : 1; }};
   transition: 0.3s;
+  padding: 0 0.75em;
 `;
 
 export const Content = styled.div`
   position: relative;
-  left: 0px;
-  bottom: 0px;
-  width: 100%;
-  height: 30%;
-  padding: 0 1em;
-`;
-
-export const Features = styled.div`
   display: grid;
-  grid-template-columns: 38px 38px;
-  grid-column-gap: 2px;
-  justify-content: flex-end;
+  width: 100%;
+  grid-template-columns: auto 30px 70px;
   align-items: center;
+  font-size: 1rem;
+  padding: 0 1em;
 `;
 
 export const Image = styled.div`
   position: relative;
   display: ${(props) => { return props.ready ? 'block' : 'none'; }};
-  width: 100%;
-  height: 135px;
-  margin: 1em 0;
-  cursor: pointer;
+  flex-shrink: 0;
+  width: 100px;
+  height: 75px;
   background-image: ${props => `url(${props.src})`};
   background-size: contain;
   background-repeat: no-repeat;
@@ -51,25 +38,17 @@ export const Image = styled.div`
 export const ImagePreloader = styled.img`
   display: block;
   width: 0px;
-  height: ${(props) => { return props.ready ? '0px' : '135px'; }};
-`;
-
-export const LargePriceText = styled.span`
-  position: relative;
-  top: -3px;
-  font-size: 1.5rem;
+  height: ${(props) => { return props.ready ? '0px' : '75px'; }};
 `;
 
 export const Name = styled.div`
-  font-size: 1.25rem;
 `;
 
 export const Price = styled.div`
   display: flex;
   align-items: flex-start;
+  justify-self: flex-end;
 `;
 
-export const TopRow = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const Qty = styled.div`
 `;

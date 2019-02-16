@@ -20,6 +20,9 @@
     "node": "8.9.4"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "1.2.15",
+    "@fortawesome/free-solid-svg-icons": "5.7.2",
+    "@fortawesome/react-fontawesome": "0.1.4",
     "acorn": "6.1.0",
     "ajv": "6.9.1",
     "babel-core": "6.26.3",

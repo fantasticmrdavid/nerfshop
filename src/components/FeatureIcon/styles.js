@@ -16,18 +16,19 @@ export const Container = styled.div`
 
 export const Capacity = styled.div`
   position: relative;
-  width: 32px;
-  height: 32px;
+  width: 33px;
+  height: 33px;
   border: 2px solid ${theme.colorBlack};
   border-radius: 50%;
+  box-sizing: content-box;
 
   &:before {
     position: absolute;
     content: "";
-    width: 38px;
+    width: 40px;
     height: 1px;
     top: calc(50% - 1px);
-    left: calc(50% - 19px);
+    left: calc(50% - 20px);
     background-color: ${theme.colorBlack};
   }
 
@@ -35,8 +36,8 @@ export const Capacity = styled.div`
     position: absolute;
     content: "";
     width: 1px;
-    height: 38px;
-    top: calc(50% - 19px);
+    height: 40px;
+    top: calc(50% - 20px);
     left: calc(50% - 1px);
     background-color: ${theme.colorBlack};
   }
@@ -56,6 +57,7 @@ export const CapacityContent = styled.div`
   background-color: ${theme.colorWhite};
   font-size: ${(props) => { return props.capacity > 99 ? '0.7rem' : '0.8rem'; }};
   z-index: 1;
+  box-sizing: content-box;
 `;
 
 export const FiringMechanism = styled.div`

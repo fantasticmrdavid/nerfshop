@@ -2,6 +2,7 @@ import React from 'react';
 import { path } from 'ramda';
 import { connect } from 'react-redux';
 import Product from 'components/Product';
+import { addProductToCart } from 'actions/cart';
 import { selectProduct } from 'actions/products';
 
 const ProductContainer = (props) => {
@@ -21,6 +22,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSelect: () => dispatch(selectProduct(ownProps)),
+    addToCart: () => dispatch(addProductToCart(ownProps)),
   };
 };
 

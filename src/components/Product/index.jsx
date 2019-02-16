@@ -20,6 +20,7 @@ class Product extends Component {
 
   render() {
     const {
+      addToCart,
       blurred,
       capacity,
       firingMechanism,
@@ -73,7 +74,7 @@ class Product extends Component {
           </TopRow>
           <Actions>
             <Cta focused={selected} onClick={onSelect}>Details</Cta>
-            <Cta id={id} primary>Add to Cart</Cta>
+            <Cta id={id} primary onClick={addToCart}>Add to Cart</Cta>
           </Actions>
         </Content>
       </Container>
@@ -82,6 +83,7 @@ class Product extends Component {
 }
 
 Product.propTypes = {
+  addToCart: PropTypes.func.isRequired,
   blurred: PropTypes.bool,
   capacity: PropTypes.number,
   firingMechanism: PropTypes.string,

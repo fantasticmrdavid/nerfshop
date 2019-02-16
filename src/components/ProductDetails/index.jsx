@@ -6,6 +6,7 @@ import * as styles from './styles';
 
 const ProductDetails = (props) => {
   const {
+    addToCart,
     capacity,
     description,
     firingMechanism,
@@ -50,7 +51,7 @@ const ProductDetails = (props) => {
         <Description>{description}</Description>
         <Actions>
           <Cta onClick={onClose}>Close</Cta>
-          <Cta id={id} primary>Add to Cart</Cta>
+          <Cta id={id} primary onClick={addToCart}>Add to Cart</Cta>
         </Actions>
       </Content>
     </Container>
@@ -58,6 +59,7 @@ const ProductDetails = (props) => {
 };
 
 ProductDetails.propTypes = {
+  addToCart: PropTypes.func.isRequired,
   capacity: PropTypes.number,
   description: PropTypes.oneOfType([
     PropTypes.string,

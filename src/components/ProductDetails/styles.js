@@ -24,7 +24,6 @@ export const Content = styled.div`
   width: 100%;
   height: 30%;
   padding: 0 1em;
-  box-sizing: border-box;
 `;
 
 export const Description = styled.div`
