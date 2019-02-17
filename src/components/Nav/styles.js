@@ -10,7 +10,7 @@ export const Container = styled.nav`
   width: 100%;
   top: 0px;
   left: 0px;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;

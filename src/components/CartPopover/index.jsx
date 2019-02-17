@@ -14,13 +14,14 @@ const CartPopover = (props) => {
   const {
     Item,
     List,
+    Message,
     Popover,
   } = styles;
 
   return (
-    <Popover active={active}>
-      { isEmpty ? 'You have no items in your cart'
-        : <List>{ contents.map(p => <Item><ProductCard {...products[p.id]} qty={p.qty} /></Item>)}</List>
+    <Popover active={active} isEmpty={isEmpty}>
+      { isEmpty ? <Message>You have no items in your cart</Message>
+        : <List>{ contents.map(p => <Item key={`cartPopoverProduct_${p.id}`}><ProductCard {...products[p.id]} qty={p.qty} /></Item>)}</List>
       }
     </Popover>
   );
