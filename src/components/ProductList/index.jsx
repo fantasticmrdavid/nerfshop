@@ -14,7 +14,7 @@ const ProductList = ({ products }) => {
       <List>
         { products.map((p, i) => <Item key={`product_${p.id}`}><ProductContainer {...p} index={i} type="list" /></Item>) }
       </List>
-      <Note>All prices in Australian Dollars (AUD)</Note>
+      <Note>All prices in Australian Dollars (AUD) and include GST</Note>
     </Fragment>
   );
 };
