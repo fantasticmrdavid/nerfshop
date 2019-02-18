@@ -5,7 +5,7 @@ import theme from 'styles/theme';
 
 export const Popover = styled.div`
   position: absolute;
-  max-height: ${props => (props.active ? '1000px' : '0px')};
+  max-height: ${props => (props.active ? `${(props.itemCount + 1) * 85}px` : '0px')};
   width: ${props => (!props.isEmpty ? '370px' : 'auto')};
   top: 46px;
   right: 0px;
@@ -15,6 +15,7 @@ export const Popover = styled.div`
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: ${theme.dropShadow};
   font-size: 1rem;
+  opacity: ${props => (props.active ? 1 : 0)};
   overflow: hidden;
 `;
 
@@ -39,7 +40,7 @@ export const Message = styled.div`
 export const Subtotal = styled.div`
   display: grid;
   grid-template-columns: auto auto;
-  grid-column-gap: 2px;
+  grid-column-gap: 10px;
   justify-content: end;
   padding: 1em;
   font-size: 1.1rem;

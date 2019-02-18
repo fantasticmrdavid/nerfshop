@@ -50,7 +50,7 @@ class CartPopover extends Component {
     const { type: highlightType, id: highlightId } = highlight;
 
     return (
-      <Popover active={active} id="cartPopover" isEmpty={isEmpty}>
+      <Popover active={active} id="cartPopover" isEmpty={isEmpty} itemCount={contents.length}>
         { isEmpty ? <Message>You have no items in your cart</Message>
           : <List>{
             contents.map((p) => {
