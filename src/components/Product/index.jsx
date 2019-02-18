@@ -59,7 +59,7 @@ class Product extends Component {
         selected={selected}
         index={index}
       >
-        <Image src={images[0]} ready={imagesReady} onClick={onSelect} />
+        <Image className="ignoreDrawerCollapse" src={images[0]} ready={imagesReady} onClick={onSelect} />
         <ImagePreloader onLoad={this.boundShow} src={images[0]} ready={imagesReady} />
         <Content>
           <TopRow>
@@ -73,7 +73,7 @@ class Product extends Component {
             </Features>
           </TopRow>
           <Actions>
-            <Cta focused={selected} onClick={onSelect}>Details</Cta>
+            <Cta className="ignoreDrawerCollapse" focused={selected} onClick={onSelect}>Details</Cta>
             <Cta id={id} primary onClick={addToCart}>Add to Cart</Cta>
           </Actions>
         </Content>

@@ -4,10 +4,10 @@ import SideDrawer from 'components/SideDrawer';
 import ProductDetailsContainer from 'containers/ProductDetailsContainer';
 
 const ProductDrawer = (props) => {
-  const { active, product } = props;
+  const { active, onOutsideClick, product } = props;
 
   return (
-    <SideDrawer active={active}>
+    <SideDrawer id="ProductDrawer" active={active} onOutsideClick={onOutsideClick}>
       { active && <ProductDetailsContainer {...product} /> }
     </SideDrawer>
   );
@@ -15,6 +15,7 @@ const ProductDrawer = (props) => {
 
 ProductDrawer.propTypes = {
   active: PropTypes.bool,
+  onOutsideClick: PropTypes.func.isRequired,
   product: PropTypes.object,
 };
 
