@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { fadeIn } from 'styles/animations';
+import theme from 'styles/theme';
 
 export const Container = styled.div`
   position: relative;
@@ -14,7 +15,7 @@ export const Content = styled.div`
   position: relative;
   display: grid;
   width: 100%;
-  grid-template-columns: auto 30px 70px;
+  grid-template-columns: auto 30px 45px 70px;
   align-items: center;
   font-size: 1rem;
   padding: 0 1em;
@@ -51,4 +52,26 @@ export const Price = styled.div`
 `;
 
 export const Qty = styled.div`
+`;
+
+export const QtyActions = styled.div`
+  display: grid;
+  grid-template-columns: 20px 20px;
+  grid-column-gap: 5px;
+`;
+
+export const QtyButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${theme.colorCharcoal};
+  color: ${theme.colorWhite};
+  transition: 0.3s;
+
+  &:hover {
+    background-color: ${theme.colorBlack};
+  }
 `;

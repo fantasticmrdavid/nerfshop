@@ -26,8 +26,8 @@ const Nav = ({
       <Container>
         <Logo>RivalShop</Logo>
         <RightSection>
-          <CartIcon focused={cartShown} onClick={cartShown ? hideCart : showCart}>
-            <FontAwesomeIcon icon={faShoppingCart} />
+          <CartIcon focused={cartShown}>
+            <FontAwesomeIcon icon={faShoppingCart} onClick={cartShown ? hideCart : showCart} />
             <CartPopoverContainer />
           </CartIcon>
           <CartCount count={cartCount} onClick={cartShown ? hideCart : showCart}>{cartCount}</CartCount>

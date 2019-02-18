@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductCard from 'components/ProductCard';
+import ProductCardContainer from 'containers/ProductCardContainer';
 import * as styles from './styles';
 
 const CartPopover = (props) => {
@@ -26,11 +26,12 @@ const CartPopover = (props) => {
       { isEmpty ? <Message>You have no items in your cart</Message>
         : <List>{
           contents.map((p) => {
-            const shouldHighlight = !!highlightType && highlightId === p.id;
+            const { deleted, id, qty } = p;
+            const shouldHighlight = !!highlightType && highlightId === id;
             const highlightParams = !!shouldHighlight ? { highlightType, highlightId } : {};
             return (
-              <Item key={`cartPopoverProduct_${p.id}`} {...highlightParams}>
-                <ProductCard {...products[p.id]} qty={p.qty} />
+              <Item key={`cartPopoverProduct_${id}`} {...highlightParams} deleted={deleted}>
+                <ProductCardContainer {...products[id]} qty={qty} />
               </Item>
             );
           },

@@ -1,6 +1,7 @@
 import {
   ADDED_PRODUCT_TO_CART,
   CART_PRODUCT_QTY_UPDATED,
+  MARKED_PRODUCT_FOR_REMOVAL,
   REMOVED_PRODUCT_FROM_CART,
 } from 'Constants';
 import { createReducer } from 'helpers/reducers';
@@ -32,11 +33,21 @@ const reducers = {
   },
   [CART_PRODUCT_QTY_UPDATED]: (state, action) => {
     const { contents } = state;
+    const { product, qty } = action;
+    return {
+      ...state,
+      contents: contents.map((p) => {
+        return p.id === product.id ? { ...p, qty } : p;
+      }),
+    };
+  },
+  [MARKED_PRODUCT_FOR_REMOVAL]: (state, action) => {
+    const { contents } = state;
     const { product } = action;
     return {
       ...state,
       contents: contents.map((p) => {
-        return p.id === product.id ? { ...p, qty: product.qty } : p;
+        return p.id === product.id ? { ...p, deleted: true } : p;
       }),
     };
   },

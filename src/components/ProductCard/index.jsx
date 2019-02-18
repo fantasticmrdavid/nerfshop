@@ -18,8 +18,10 @@ class ProductCard extends Component {
 
   render() {
     const {
+      decrementQty,
       id,
       images,
+      incrementQty,
       name,
       price,
       qty,
@@ -35,6 +37,8 @@ class ProductCard extends Component {
       Name,
       Price,
       Qty,
+      QtyActions,
+      QtyButton,
     } = styles;
 
     return (
@@ -44,6 +48,10 @@ class ProductCard extends Component {
         <Content>
           <Name>{name}</Name>
           <Qty>x{qty}</Qty>
+          <QtyActions>
+            <QtyButton onClick={decrementQty}>-</QtyButton>
+            <QtyButton onClick={incrementQty}>+</QtyButton>
+          </QtyActions>
           <Price>${(price * qty).toFixed(2, 10)}</Price>
         </Content>
       </Container>
@@ -52,8 +60,10 @@ class ProductCard extends Component {
 }
 
 ProductCard.propTypes = {
+  decrementQty: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
   images: PropTypes.array.isRequired,
+  incrementQty: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   qty: PropTypes.number.isRequired,

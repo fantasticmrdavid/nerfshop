@@ -14,9 +14,9 @@ export const Button = styled.div`
   transition: 0.3s;
   flex: 1;
   white-space: nowrap;
+  cursor: pointer;
 
   &:hover {
-    cursor: pointer;
     background-color: ${props => (props.primary ? theme.colorBlack : theme.colorGrey)};
   }
 `;
