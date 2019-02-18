@@ -26,8 +26,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSelect: () => dispatch(selectProduct(ownProps)),
     addToCart: () => {
+      const { id } = ownProps;
       dispatch(addProductToCart(ownProps));
-      dispatch(showCartPopover());
+      dispatch(showCartPopover({ highlightType: 'added', id }));
       setTimeout(() => { dispatch(hideCartPopover()); }, CART_POPOVER_AUTOHIDE_DURATION);
     },
   };

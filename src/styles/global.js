@@ -1,9 +1,9 @@
 /* eslint-disable */
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 import reset from './reset';
 
-injectGlobal`
+const GlobalStyles = createGlobalStyle`
   ${reset}
   body {
     font-family: ${theme.fontBody};
@@ -12,3 +12,5 @@ injectGlobal`
     line-height: 1.2;
   }
 `;
+
+export default GlobalStyles;

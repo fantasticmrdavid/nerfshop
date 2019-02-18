@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Footer from 'components/Footer';
 import NavContainer from 'containers/NavContainer';
 import ProductDrawerContainer from 'containers/ProductDrawerContainer';
+import GlobalStyles from 'styles/global';
 import * as styles from './styles';
 
 const { NODE_ENV } = process.env;
@@ -16,14 +17,17 @@ const Template = ({ children }) => {
   if (NODE_ENV === 'production') return 'Coming soon...';
 
   return (
-    <Container>
-      <NavContainer />
-      <Content>
-        {children}
-      </Content>
-      <Footer />
-      <ProductDrawerContainer />
-    </Container>
+    <Fragment>
+      <GlobalStyles />
+      <Container>
+        <NavContainer />
+        <Content>
+          {children}
+        </Content>
+        <Footer />
+        <ProductDrawerContainer />
+      </Container>
+    </Fragment>
   );
 };
 

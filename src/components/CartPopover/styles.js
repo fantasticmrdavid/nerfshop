@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
+import { highlightPulse } from 'styles/animations';
 import theme from 'styles/theme';
 
 export const Popover = styled.div`
@@ -16,6 +18,8 @@ export const Popover = styled.div`
 `;
 
 export const Item = styled.li`
+  animation: ${props => (props.highlightType === 'added' ? css`${highlightPulse(transparentize(0.7, theme.colorBlue))} 1.5s linear` : 'none')};
+  animation-fill-mode: forwards;
 `;
 
 export const List = styled.ul`

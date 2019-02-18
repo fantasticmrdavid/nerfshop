@@ -7,6 +7,7 @@ const theme = {
   colorGreen: 'green',
   colorGrey: '#ddd',
   colorCharcoal: '#333',
+  colorBlue: '#0453BE',
 
   colorFont: '#333',
 

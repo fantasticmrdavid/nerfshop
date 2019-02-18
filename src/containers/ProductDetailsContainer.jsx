@@ -13,8 +13,9 @@ const ProductDetailsContainer = (props) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     addToCart: () => {
+      const { id } = ownProps;
       dispatch(addProductToCart(ownProps));
-      dispatch(showCartPopover());
+      dispatch(showCartPopover({ highlightType: 'added', id }));
       dispatch(deselectProduct());
       setTimeout(() => { dispatch(hideCartPopover()); }, CART_POPOVER_AUTOHIDE_DURATION);
     },
