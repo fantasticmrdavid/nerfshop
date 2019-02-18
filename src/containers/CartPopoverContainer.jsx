@@ -9,12 +9,12 @@ const CartPopoverContainer = (props) => {
 
 const mapStateToProps = (state) => {
   const { cart, nav, products } = state;
-  const { contents } = cart;
+  const { contents, subtotal } = cart;
   const { cartShown, cartHighlight } = nav;
   const { listing } = products;
   return {
     active: cartShown,
-    isEmpty: cart.contents.length === 0,
+    isEmpty: contents.length === 0,
     contents,
     highlight: cartHighlight,
     products: listing.reduce((a, p) => {
@@ -23,6 +23,7 @@ const mapStateToProps = (state) => {
         [p.id]: p,
       };
     }, {}),
+    subtotal,
   };
 };
 

@@ -3,13 +3,21 @@ import {
   CART_PRODUCT_QTY_UPDATED,
   MARKED_PRODUCT_FOR_REMOVAL,
   REMOVED_PRODUCT_FROM_CART,
+  SUBTOTAL_UPDATED,
 } from 'Constants';
 
+export const updateCartSubtotal = () => (dispatch, getState) => {
+  const { listing: products } = getState().products;
+  return dispatch({ type: SUBTOTAL_UPDATED, products });
+};
+
 export const addProductToCart = product => (dispatch) => {
-  return dispatch({
+  dispatch({
     type: ADDED_PRODUCT_TO_CART,
     product,
   });
+
+  dispatch(updateCartSubtotal());
 };
 
 export const removeProductFromCart = product => (dispatch) => {
@@ -17,16 +25,22 @@ export const removeProductFromCart = product => (dispatch) => {
     type: MARKED_PRODUCT_FOR_REMOVAL,
     product,
   });
-  return setTimeout(() => dispatch({
-    type: REMOVED_PRODUCT_FROM_CART,
-    product,
-  }), 1000);
+
+  setTimeout(() => {
+    dispatch({
+      type: REMOVED_PRODUCT_FROM_CART,
+      product,
+    });
+    dispatch(updateCartSubtotal());
+  }, 1000);
 };
 
 export const updateCartQty = (product, qty) => (dispatch) => {
-  return dispatch({
+  dispatch({
     type: CART_PRODUCT_QTY_UPDATED,
     product,
     qty,
   });
+
+  dispatch(updateCartSubtotal());
 };

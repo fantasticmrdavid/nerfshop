@@ -10,6 +10,7 @@ const CartPopover = (props) => {
     highlight,
     isEmpty,
     products,
+    subtotal,
   } = props;
 
   const {
@@ -17,6 +18,10 @@ const CartPopover = (props) => {
     List,
     Message,
     Popover,
+    SmallText,
+    Subtotal,
+    SubtotalLabel,
+    SubtotalAmount,
   } = styles;
 
   const { type: highlightType, id: highlightId } = highlight;
@@ -37,6 +42,12 @@ const CartPopover = (props) => {
           },
         )}</List>
       }
+      { !isEmpty && (
+      <Subtotal>
+        <SubtotalLabel>Total <SmallText>(incl GST)</SmallText>:</SubtotalLabel>
+        <SubtotalAmount>${subtotal.toFixed(2)}</SubtotalAmount>
+      </Subtotal>
+      )}
     </Popover>
   );
 };
@@ -47,6 +58,7 @@ CartPopover.propTypes = {
   highlight: PropTypes.object,
   isEmpty: PropTypes.bool,
   products: PropTypes.object.isRequired,
+  subtotal: PropTypes.number,
 };
 
 export default CartPopover;

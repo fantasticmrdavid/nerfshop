@@ -35,3 +35,24 @@ export const List = styled.ul`
 export const Message = styled.div`
   padding: 1em;
 `;
+
+export const Subtotal = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 2px;
+  justify-content: end;
+  padding: 0.5em 1em;
+  font-size: 1.1rem;
+  border: ${`1px solid ${theme.inputBorderColor}`};
+`;
+
+export const SubtotalAmount = styled.div`
+  font-weight: 500;
+`;
+
+export const SubtotalLabel = styled.div`
+`;
+
+export const SmallText = styled.span`
+  font-size: 0.75rem;
+`;

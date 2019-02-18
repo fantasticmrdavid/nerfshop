@@ -3,11 +3,13 @@ import {
   CART_PRODUCT_QTY_UPDATED,
   MARKED_PRODUCT_FOR_REMOVAL,
   REMOVED_PRODUCT_FROM_CART,
+  SUBTOTAL_UPDATED,
 } from 'Constants';
 import { createReducer } from 'helpers/reducers';
 
 const initialState = {
   contents: [],
+  subtotal: 0,
 };
 
 const reducers = {
@@ -57,6 +59,20 @@ const reducers = {
     return {
       ...state,
       contents: contents.filter(p => p.id !== product.id),
+    };
+  },
+  [SUBTOTAL_UPDATED]: (state, action) => {
+    const { products } = action;
+    const { contents } = state;
+    const productsLookup = products.reduce((a, p) => {
+      return {
+        ...a,
+        [p.id]: p,
+      };
+    }, {});
+    return {
+      ...state,
+      subtotal: contents.reduce((a, p) => a + (productsLookup[p.id].price * p.qty), 0),
     };
   },
 };
