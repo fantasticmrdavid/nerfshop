@@ -1,8 +1,25 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
 
+export const CartCount = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: ${props => (props.count > 0 ? '20px' : '0px')};
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${theme.colorRivalYellow};
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  overflow: hidden;
+`;
+
 export const CartIcon = styled.div`
   cursor: pointer;
+  color: ${props => (props.focused ? theme.colorRivalYellow : undefined)};
+  transition: 0.3s;
 `;
 
 export const Container = styled.nav`
@@ -26,6 +43,8 @@ export const Logo = styled.div`
 `;
 
 export const RightSection = styled.div`
+  display: flex;
+  align-items: center;
   font-size: 1.25rem;
 `;
 

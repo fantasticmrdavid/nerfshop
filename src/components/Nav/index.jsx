@@ -5,8 +5,14 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import CartPopoverContainer from 'containers/CartPopoverContainer';
 import * as styles from './styles';
 
-const Nav = ({ cartShown, hideCart, showCart }) => {
+const Nav = ({
+  cartCount,
+  cartShown,
+  hideCart,
+  showCart,
+}) => {
   const {
+    CartCount,
     CartIcon,
     Container,
     Logo,
@@ -20,10 +26,11 @@ const Nav = ({ cartShown, hideCart, showCart }) => {
       <Container>
         <Logo>RivalShop</Logo>
         <RightSection>
-          <CartIcon onClick={cartShown ? hideCart : showCart}>
+          <CartIcon focused={cartShown} onClick={cartShown ? hideCart : showCart}>
             <FontAwesomeIcon icon={faShoppingCart} />
             <CartPopoverContainer />
           </CartIcon>
+          <CartCount count={cartCount} onClick={cartShown ? hideCart : showCart}>{cartCount}</CartCount>
         </RightSection>
       </Container>
     </Fragment>
@@ -31,6 +38,7 @@ const Nav = ({ cartShown, hideCart, showCart }) => {
 };
 
 Nav.propTypes = {
+  cartCount: PropTypes.number,
   cartShown: PropTypes.bool,
   hideCart: PropTypes.func.isRequired,
   showCart: PropTypes.func.isRequired,

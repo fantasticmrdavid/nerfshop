@@ -8,6 +8,7 @@ const theme = {
   colorGrey: '#ddd',
   colorCharcoal: '#333',
   colorBlue: '#0453BE',
+  colorRivalYellow: '#f3b500',
 
   colorFont: '#333',
 

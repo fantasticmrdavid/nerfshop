@@ -11,6 +11,7 @@ export const Popover = styled.div`
   right: 0px;
   transition: 0.3s;
   z-index: 11;
+  color: ${theme.colorFont};
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: ${theme.dropShadow};
   font-size: 1rem;
@@ -20,6 +21,7 @@ export const Popover = styled.div`
 export const Item = styled.li`
   animation: ${props => (props.highlightType === 'added' ? css`${highlightPulse(transparentize(0.7, theme.colorBlue))} 1.5s linear` : 'none')};
   animation-fill-mode: forwards;
+  font-weight: ${props => (props.highlightType === 'added' ? 500 : 300)};
 `;
 
 export const List = styled.ul`
