@@ -5,8 +5,8 @@ import theme from 'styles/theme';
 
 export const Popover = styled.div`
   position: absolute;
-  max-height: ${(props) => { return props.active ? '1000px' : '0px'; }};
-  width: ${(props) => { return !props.isEmpty ? '350px' : 'auto'; }};
+  max-height: ${props => (props.active ? '1000px' : '0px')};
+  width: ${props => (!props.isEmpty ? '350px' : 'auto')};
   top: 67px;
   right: 0px;
   transition: 0.3s;

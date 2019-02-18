@@ -11,7 +11,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 275px;
-  opacity: ${(props) => { return props.blurred ? 0.5 : 1; }};
+  opacity: ${props => (props.blurred ? 0.5 : 1)};
   transition: 0.3s;
 `;
 
@@ -34,7 +34,7 @@ export const Features = styled.div`
 
 export const Image = styled.div`
   position: relative;
-  display: ${(props) => { return props.ready ? 'block' : 'none'; }};
+  display: ${props => (props.ready ? 'block' : 'none')};
   width: 100%;
   height: 135px;
   margin: 1em 0;
@@ -51,7 +51,7 @@ export const Image = styled.div`
 export const ImagePreloader = styled.img`
   display: block;
   width: 0px;
-  height: ${(props) => { return props.ready ? '0px' : '135px'; }};
+  height: ${props => (props.ready ? '0px' : '135px')};
 `;
 
 export const LargePriceText = styled.span`

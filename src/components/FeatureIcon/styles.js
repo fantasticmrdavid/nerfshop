@@ -55,7 +55,7 @@ export const CapacityContent = styled.div`
   border: 1px solid ${theme.colorBlack};
   border-radius: 50%;
   background-color: ${theme.colorWhite};
-  font-size: ${(props) => { return props.capacity > 99 ? '0.7rem' : '0.8rem'; }};
+  font-size: ${props => (props.capacity > 99 ? '0.7rem' : '0.8rem')};
   z-index: 1;
   box-sizing: content-box;
 `;
@@ -87,7 +87,7 @@ export const SlamFire = styled.div`
 
 export const TooltipContainer = styled.div`
   position: absolute;
-  display: ${(props) => { return props.active ? 'block' : 'none'; }};
+  display: ${props => (props.active ? 'block' : 'none')};
   top: -5px;
   left: 35px;
   z-index: 1;

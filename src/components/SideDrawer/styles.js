@@ -7,12 +7,12 @@ export const Drawer = styled.aside`
   height: 100%;
   min-width: 300px;
   top: 0px;
-  right: ${(props) => { return props.active ? '0px' : '-600px'; }};
+  right: ${props => (props.active ? '0px' : '-600px')};
   z-index: 2;
   display: flex;
   padding: 1em 2em;
   background-color: rgba(255, 255, 255, 0.95);
-  opacity: ${(props) => { return props.active ? 1 : 0; }};
+  opacity: ${props => (props.active ? 1 : 0)};
   border: 1px solid ${theme.borderColor};
   transition: 0.2s;
 `;

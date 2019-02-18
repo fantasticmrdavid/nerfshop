@@ -6,7 +6,7 @@ export const Button = styled.div`
   text-align: center;
   padding: 1em 2em;
   font-weight: 500;
-  color: ${(props) => { return props.primary ? theme.colorWhite : theme.colorCharcoal; }};
+  color: ${props => (props.primary ? theme.colorWhite : theme.colorCharcoal)};
   background-color: ${(props) => {
     if (props.focused) return theme.colorGrey;
     return props.primary ? theme.colorCharcoal : 'transparent';
@@ -17,6 +17,6 @@ export const Button = styled.div`
 
   &:hover {
     cursor: pointer;
-    background-color: ${(props) => { return props.primary ? theme.colorBlack : theme.colorGrey; }};
+    background-color: ${props => (props.primary ? theme.colorBlack : theme.colorGrey)};
   }
 `;

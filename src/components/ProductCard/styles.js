@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  opacity: ${(props) => { return props.blurred ? 0.5 : 1; }};
+  opacity: ${props => (props.blurred ? 0.5 : 1)};
   transition: 0.3s;
   padding: 0 0.75em;
 `;
@@ -22,7 +22,7 @@ export const Content = styled.div`
 
 export const Image = styled.div`
   position: relative;
-  display: ${(props) => { return props.ready ? 'block' : 'none'; }};
+  display: ${props => (props.ready ? 'block' : 'none')};
   flex-shrink: 0;
   width: 100px;
   height: 75px;
@@ -38,7 +38,7 @@ export const Image = styled.div`
 export const ImagePreloader = styled.img`
   display: block;
   width: 0px;
-  height: ${(props) => { return props.ready ? '0px' : '75px'; }};
+  height: ${props => (props.ready ? '0px' : '75px')};
 `;
 
 export const Name = styled.div`
