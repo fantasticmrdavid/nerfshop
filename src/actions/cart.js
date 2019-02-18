@@ -32,7 +32,7 @@ export const removeProductFromCart = product => (dispatch) => {
       product,
     });
     dispatch(updateCartSubtotal());
-  }, 1000);
+  }, 300);
 };
 
 export const updateCartQty = (product, qty) => (dispatch) => {
