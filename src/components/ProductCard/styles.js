@@ -70,6 +70,7 @@ export const QtyButton = styled.div`
   background-color: ${theme.colorCharcoal};
   color: ${theme.colorWhite};
   transition: 0.3s;
+  cursor: pointer;
 
   &:hover {
     background-color: ${theme.colorBlack};

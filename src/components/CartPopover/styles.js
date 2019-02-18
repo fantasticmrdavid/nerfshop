@@ -7,7 +7,7 @@ export const Popover = styled.div`
   position: absolute;
   max-height: ${props => (props.active ? '1000px' : '0px')};
   width: ${props => (!props.isEmpty ? '370px' : 'auto')};
-  top: 67px;
+  top: 46px;
   right: 0px;
   transition: 0.3s;
   z-index: 11;

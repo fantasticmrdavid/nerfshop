@@ -43,9 +43,12 @@ export const Logo = styled.div`
 `;
 
 export const RightSection = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   font-size: 1.25rem;
+  width: 50%;
 `;
 
 export const Spacer = styled.div`

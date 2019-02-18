@@ -26,11 +26,11 @@ const Nav = ({
       <Container>
         <Logo>RivalShop</Logo>
         <RightSection>
-          <CartIcon focused={cartShown}>
-            <FontAwesomeIcon icon={faShoppingCart} onClick={cartShown ? hideCart : showCart} />
-            <CartPopoverContainer />
+          <CartIcon focused={cartShown} onClick={cartShown ? hideCart : showCart}>
+            <FontAwesomeIcon icon={faShoppingCart} />
           </CartIcon>
           <CartCount count={cartCount} onClick={cartShown ? hideCart : showCart}>{cartCount}</CartCount>
+          <CartPopoverContainer />
         </RightSection>
       </Container>
     </Fragment>
