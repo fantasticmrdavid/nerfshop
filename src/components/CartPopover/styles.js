@@ -3,9 +3,14 @@ import { transparentize } from 'polished';
 import { highlightPulse } from 'styles/animations';
 import theme from 'styles/theme';
 
+export const Actions = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Popover = styled.div`
   position: absolute;
-  max-height: ${props => (props.active ? `${(props.itemCount + 1) * 85}px` : '0px')};
+  max-height: ${props => (props.active ? `${(props.itemCount + 2) * 85}px` : '0px')};
   width: ${props => (!props.isEmpty ? '370px' : 'auto')};
   top: 46px;
   right: 0px;
@@ -44,7 +49,8 @@ export const Subtotal = styled.div`
   justify-content: end;
   padding: 1em;
   font-size: 1.1rem;
-  border: ${`1px solid ${theme.inputBorderColor}`};
+  border-top: ${`1px solid ${theme.inputBorderColor}`};
+  border-bottom: ${`1px solid ${theme.inputBorderColor}`};
 `;
 
 export const SubtotalAmount = styled.div`

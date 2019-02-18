@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Cta from 'components/Cta';
 import ProductCardContainer from 'containers/ProductCardContainer';
 import * as styles from './styles';
 
@@ -30,6 +31,7 @@ class CartPopover extends Component {
     const {
       active,
       contents,
+      hideCart,
       highlight,
       isEmpty,
       products,
@@ -37,6 +39,7 @@ class CartPopover extends Component {
     } = this.props;
 
     const {
+      Actions,
       Item,
       List,
       Message,
@@ -66,10 +69,16 @@ class CartPopover extends Component {
           )}</List>
         }
         { !isEmpty && (
-        <Subtotal>
-          <SubtotalLabel>Total <SmallText>(incl GST)</SmallText>:</SubtotalLabel>
-          <SubtotalAmount>${subtotal.toFixed(2)}</SubtotalAmount>
-        </Subtotal>
+          <Subtotal>
+            <SubtotalLabel>Total <SmallText>(incl GST)</SmallText>:</SubtotalLabel>
+            <SubtotalAmount>${subtotal.toFixed(2)}</SubtotalAmount>
+          </Subtotal>
+        )}
+        { !isEmpty && (
+          <Actions>
+            <Cta onClick={hideCart}>Close</Cta>
+            <Cta primary href="/checkout">Checkout</Cta>
+          </Actions>
         )}
       </Popover>
     );
@@ -79,6 +88,7 @@ class CartPopover extends Component {
 CartPopover.propTypes = {
   active: PropTypes.bool,
   contents: PropTypes.array.isRequired,
+  hideCart: PropTypes.func.isRequired,
   highlight: PropTypes.object,
   isEmpty: PropTypes.bool,
   onOutsideClick: PropTypes.func,
