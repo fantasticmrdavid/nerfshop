@@ -30,6 +30,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     hideCart: () => dispatch(hideCartPopover()),
+    onOutsideClick: () => dispatch(hideCartPopover()),
   };
 };
 

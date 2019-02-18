@@ -41,7 +41,7 @@ export const Subtotal = styled.div`
   grid-template-columns: auto auto;
   grid-column-gap: 2px;
   justify-content: end;
-  padding: 0.5em 1em;
+  padding: 1em;
   font-size: 1.1rem;
   border: ${`1px solid ${theme.inputBorderColor}`};
 `;
