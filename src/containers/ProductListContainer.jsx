@@ -14,6 +14,8 @@ class ProductListContainer extends Component {
   }
 
   render() {
+    const { shouldLoadProducts } = this.props;
+    if (shouldLoadProducts) return null;
     return <ProductList {...this.props} />;
   }
 }

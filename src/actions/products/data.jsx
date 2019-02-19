@@ -58,7 +58,7 @@ export default [
     type: 'blaster',
     series: 'Rival',
     price: 149,
-    description: <Fragment>The Hera is the blaster of choice for those who favour responsive semi-auto fire. Featuring 12 magazine-fed rounds, it is a very popular blaster among modders and with a wide range of home-made upgrades available.<br /><br />The Hera is also compatible with the official Rival Rechargeable Battery (sold separately) which allows it to stay at peak performance for far longer than standard alkaline batteries.</Fragment>,
+    description: <Fragment>The Hera is the blaster of choice for those who favour responsive semi-auto fire. Featuring 12 magazine-fed rounds, it is a very popular blaster among modders with a wide range of home-made upgrades available.<br /><br />The Hera is also compatible with the official Rival Rechargeable Battery (sold separately) which allows it to stay at peak performance for far longer than standard alkaline batteries.</Fragment>,
     color: 'phantomCorps',
     capacity: 12,
     images: [
