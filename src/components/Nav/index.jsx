@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import CartPopoverContainer from 'containers/CartPopoverContainer';
@@ -24,7 +25,9 @@ const Nav = ({
     <Fragment>
       <Spacer />
       <Container>
-        <Logo>RivalShop</Logo>
+        <Link href="/" to="/">
+          <Logo>RivalShop</Logo>
+        </Link>
         <RightSection>
           <CartIcon focused={cartShown} onClick={cartShown ? hideCart : showCart}>
             <FontAwesomeIcon icon={faShoppingCart} />

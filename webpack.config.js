@@ -52,6 +52,7 @@ module.exports = {
   },
   devServer: {
     contentBase: BUILD_DIR,
+    historyApiFallback: true,
   },
   plugins: [
     HtmlWebpackPluginConfig,

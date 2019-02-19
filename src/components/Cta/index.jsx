@@ -1,12 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import * as styles from './styles';
 
-export default (props) => {
+const Cta = (props) => {
+  const { to } = props;
   const {
     Button,
   } = styles;
 
-  return (
-    <Button {...props} />
-  );
+  const innerComp = <Button {...props} />;
+
+  return !!to ? <Link href={to} to={to}>{innerComp}</Link> : innerComp;
 };
+
+Cta.propTypes = {
+  to: PropTypes.string,
+};
+
+export default Cta;
