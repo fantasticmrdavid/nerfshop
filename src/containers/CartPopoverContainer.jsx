@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CartPopover from 'components/CartPopover';
 import { hideCartPopover } from 'actions/nav';
+import { arrayToObject } from 'helpers/array';
 
 const CartPopoverContainer = (props) => {
   return <CartPopover {...props} />;
@@ -17,12 +18,7 @@ const mapStateToProps = (state) => {
     isEmpty: contents.length === 0,
     contents,
     highlight: cartHighlight,
-    products: listing.reduce((a, p) => {
-      return {
-        ...a,
-        [p.id]: p,
-      };
-    }, {}),
+    products: arrayToObject(listing, 'id'),
     subtotal,
   };
 };

@@ -77,7 +77,7 @@ class CartPopover extends Component {
         { !isEmpty && (
           <Actions>
             <Cta onClick={hideCart}>Close</Cta>
-            <Cta primary to="/checkout">Checkout</Cta>
+            <Cta onClick={hideCart} primary to="/checkout">Checkout</Cta>
           </Actions>
         )}
       </Popover>

@@ -19,3 +19,14 @@ export const highlightPulse = color => keyframes`
     background-color: transparent;
   }
 `;
+
+export const slideFadeIn = keyframes`
+  0% {
+    opacity: 0;
+    left: -30px;
+  }
+  100% {
+    opacity: 1;
+    left: 0px;
+  }
+`;

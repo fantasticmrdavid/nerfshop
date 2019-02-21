@@ -9,6 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.main`
+  min-height: calc(100vh - 185px);
   width: 100%;
   max-width: ${theme.maxWidthDesktop};
   padding-bottom: 3em;

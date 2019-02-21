@@ -1,11 +1,6 @@
 import React from 'react';
+import CheckoutContainer from 'containers/CheckoutContainer';
 
-const Checkout = () => {
-  return (
-    <div>
-      Checkout
-    </div>
-  );
-};
+const Checkout = () => <CheckoutContainer />;
 
 export default Checkout;

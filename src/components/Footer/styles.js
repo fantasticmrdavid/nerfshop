@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
 
-export const Container = styled.nav`
+export const Container = styled.footer`
   display: flex;
   justify-content: center;
   width: 100%;
