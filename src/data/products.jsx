@@ -4,6 +4,7 @@ export default [
   {
     id: 'rpc01',
     name: 'Kronos',
+    slug: 'kronos',
     type: 'blaster',
     series: 'Rival',
     price: 55,
@@ -21,6 +22,7 @@ export default [
   {
     id: 'rpc04',
     name: 'Helios',
+    slug: 'helios',
     type: 'blaster',
     series: 'Rival',
     price: 89,
@@ -38,6 +40,7 @@ export default [
   {
     id: 'rpc02',
     name: 'Hades',
+    slug: 'hades',
     type: 'blaster',
     series: 'Rival',
     price: 159,
@@ -55,6 +58,7 @@ export default [
   {
     id: 'rpc03',
     name: 'Hera',
+    slug: 'hera',
     type: 'blaster',
     series: 'Rival',
     price: 149,
@@ -72,6 +76,7 @@ export default [
   {
     id: 'rb01',
     name: 'Nemesis',
+    slug: 'nemesis',
     type: 'blaster',
     series: 'Rival',
     price: 219,
@@ -89,6 +94,7 @@ export default [
   {
     id: 'rr01',
     name: 'Zeus',
+    slug: 'zeus',
     type: 'blaster',
     series: 'Rival',
     price: 119,

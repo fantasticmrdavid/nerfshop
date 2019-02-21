@@ -3,7 +3,7 @@ import {
   PRODUCT_DESELECTED,
   PRODUCT_SELECTED,
 } from 'Constants';
-import staticProducts from './data';
+import staticProducts from 'data/products';
 
 export const fetchProductsStatic = () => (dispatch) => {
   return dispatch({

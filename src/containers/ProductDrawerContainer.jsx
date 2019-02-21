@@ -1,6 +1,7 @@
 import React from 'react';
 import { path } from 'ramda';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ProductDrawer from 'components/ProductDrawer';
 import { deselectProduct } from 'actions/products';
 
@@ -17,13 +18,19 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { history } = ownProps;
   return {
-    onOutsideClick: () => dispatch(deselectProduct()),
+    onOutsideClick: () => {
+      dispatch(deselectProduct());
+      history.push('/');
+    },
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ProductDrawerContainer);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(ProductDrawerContainer),
+);

@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import ProductListContainer from 'containers/ProductListContainer';
 
-const Home = () => {
+const Home = ({ product }) => {
   return (
-    <div>
+    <Fragment>
       <Helmet>
         <title>RivalShop - Your Aussie source for Nerf Rival gear</title>
       </Helmet>
-      <ProductListContainer />
-    </div>
+      <ProductListContainer selected={product} />
+    </Fragment>
   );
+};
+
+Home.propTypes = {
+  product: PropTypes.object,
 };
 
 export default Home;

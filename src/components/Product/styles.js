@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { fadeIn } from 'styles/animations';
 
 export const Actions = styled.div`
   display: flex;
@@ -34,7 +33,6 @@ export const Features = styled.div`
 
 export const Image = styled.div`
   position: relative;
-  display: ${props => (props.ready ? 'block' : 'none')};
   width: 100%;
   height: 135px;
   margin: 1em 0;
@@ -43,15 +41,6 @@ export const Image = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  opacity: 0;
-  animation: ${fadeIn} 0.3s normal linear;
-  animation-fill-mode: forwards;
-`;
-
-export const ImagePreloader = styled.img`
-  display: block;
-  width: 0px;
-  height: ${props => (props.ready ? '0px' : '135px')};
 `;
 
 export const LargePriceText = styled.span`

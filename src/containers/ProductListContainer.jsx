@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProductList from 'components/ProductList';
-import { fetchProductsStatic } from 'actions/products';
+import { fetchProductsStatic, selectProduct } from 'actions/products';
 
 class ProductListContainer extends Component {
   constructor(props) {
     super(props);
-    const { loadProducts, shouldLoadProducts } = props;
+    const {
+      loadProducts,
+      preselectProduct,
+      shouldLoadProducts,
+      shouldSelectProduct,
+    } = props;
     if (shouldLoadProducts) loadProducts();
+    if (shouldSelectProduct) preselectProduct();
   }
 
   render() {
@@ -20,22 +26,30 @@ class ProductListContainer extends Component {
 
 ProductListContainer.propTypes = {
   loadProducts: PropTypes.func.isRequired,
+  preselectProduct: PropTypes.func.isRequired,
   shouldLoadProducts: PropTypes.bool,
+  shouldSelectProduct: PropTypes.bool,
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const { selected } = ownProps;
   const { products } = state;
   const { listing } = products;
   const shouldLoadProducts = listing.length === 0;
+  const shouldSelectProduct = !!selected;
   return {
     products: listing,
+    selected,
     shouldLoadProducts,
+    shouldSelectProduct,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { selected } = ownProps;
   return {
     loadProducts: () => dispatch(fetchProductsStatic()),
+    preselectProduct: () => dispatch(selectProduct(selected)),
   };
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ProductDetails from 'components/ProductDetails';
 import { addProductToCart } from 'actions/cart';
 import { hideCartPopover, showCartPopover } from 'actions/nav';
@@ -11,6 +12,7 @@ const ProductDetailsContainer = (props) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  const { history } = ownProps;
   return {
     addToCart: () => {
       const { id } = ownProps;
@@ -19,11 +21,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(deselectProduct());
       setTimeout(() => { dispatch(hideCartPopover()); }, CART_POPOVER_AUTOHIDE_DURATION);
     },
-    onClose: () => dispatch(deselectProduct()),
+    onClose: () => {
+      history.push('/');
+      dispatch(deselectProduct());
+    },
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(ProductDetailsContainer);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps,
+  )(ProductDetailsContainer),
+);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { path } from 'ramda';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Product from 'components/Product';
 import { addProductToCart } from 'actions/cart';
 import { hideCartPopover, showCartPopover } from 'actions/nav';
@@ -13,9 +14,10 @@ const ProductContainer = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  const { id } = ownProps;
   const { products } = state;
   const { selected } = products;
-  const isSelected = path(['id'], selected) === ownProps.id;
+  const isSelected = path(['id'], selected) === id;
   return {
     blurred: !!path(['id'], selected) && !isSelected,
     selected: isSelected,
@@ -23,8 +25,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  const { history, slug } = ownProps;
   return {
-    onSelect: () => dispatch(selectProduct(ownProps)),
+    onSelect: () => {
+      dispatch(selectProduct(ownProps));
+      history.push(`/${slug}`);
+    },
     addToCart: () => {
       const { id } = ownProps;
       dispatch(addProductToCart(ownProps));
@@ -34,7 +40,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ProductContainer);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(ProductContainer),
+);
