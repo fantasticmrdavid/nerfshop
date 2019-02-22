@@ -48,6 +48,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+input, select {
+  box-sizing: border-box;
+}
 `;
 
 export default reset;

@@ -5,7 +5,7 @@ import Cta from 'components/Cta';
 import ProductLineItemContainer from 'containers/ProductLineItemContainer';
 import * as styles from './styles';
 
-const Checkout = (props) => {
+const Summary = (props) => {
   const {
     cart,
     isEmpty,
@@ -19,16 +19,17 @@ const Checkout = (props) => {
 
   const {
     Actions,
+    CheckoutSection,
     Column,
     ColumnHeadings,
     Item,
     List,
     Message,
     SmallText,
+    Subheading,
     Subtotal,
     SubtotalLabel,
     SubtotalAmount,
-    Summary,
   } = styles;
 
   return (
@@ -36,7 +37,8 @@ const Checkout = (props) => {
       <Helmet>
         <title>Checkout - Your Items - RivalShop</title>
       </Helmet>
-      <Summary>
+      <Subheading>/ Your Items</Subheading>
+      <CheckoutSection>
         <ColumnHeadings>
           <Column>Item</Column>
           <Column>Qty</Column>
@@ -60,21 +62,21 @@ const Checkout = (props) => {
             <SubtotalAmount>${subtotal.toFixed(2)}</SubtotalAmount>
           </Subtotal>
         )}
-      </Summary>
+      </CheckoutSection>
       { !isEmpty && (
         <Actions>
           <Cta to="/">Back</Cta>
-          <Cta primary to="/shipping">Enter Shipping Details</Cta>
+          <Cta primary to="/checkout/shipping">Enter Shipping Details</Cta>
         </Actions>
       )}
     </Fragment>
   );
 };
 
-Checkout.propTypes = {
+Summary.propTypes = {
   cart: PropTypes.object.isRequired,
   isEmpty: PropTypes.bool,
   products: PropTypes.object.isRequired,
 };
 
-export default Checkout;
+export default Summary;

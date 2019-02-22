@@ -9,6 +9,15 @@ export const Actions = styled.div`
   margin-top: 2em;
 `;
 
+export const CheckboxFieldset = styled.div`
+  display: flex;
+`;
+
+export const CheckoutSection = styled.section`
+  width: 750px;
+  align-self: center;
+`;
+
 export const Column = styled.div`
   font-weight: 500;
   text-align: center;
@@ -28,6 +37,52 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
+export const FieldLabel = styled.label`
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+`;
+
+export const FieldInput = styled.input`
+  padding: 0.5em;
+  width: 100%;
+`;
+
+export const FieldSelect = styled.select`
+  padding: 0.5em;
+  width: 100%;
+`;
+
+export const Fieldset = styled.div`
+  margin: 0.5em 0;
+`;
+
+export const FormHeading = styled.h3`
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+`;
+
+export const FormSection = styled.section`
+  position: relative;
+  display: grid;
+  grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+  grid-column-gap: 10px;
+  padding: 2em 0;
+  opacity: 0;
+  animation: ${slideFadeIn} 0.3s normal linear;
+  animation-fill-mode: forwards;
+  animation-delay: ${props => `${props.sectionNo * 0.25}s`};
+  border-bottom: ${props => (props.sectionNo === 1 ? `1px solid ${theme.borderColor}` : undefined)};
+`;
+
+export const FullSpanFieldset = styled.div`
+  grid-column-start: 1;
+  grid-column-end: span 2;
+`;
+
 export const Heading = styled.h1`
   font-size: 2rem;
   margin: 1em 0 0.25em;
@@ -36,10 +91,10 @@ export const Heading = styled.h1`
 export const Subheading = styled.h2`
   position: relative;
   font-size: 1.2rem;
+  margin-bottom: 1em;
   opacity: 0;
   animation: ${slideFadeIn} 0.3s normal linear;
   animation-fill-mode: forwards;
-  animation-delay: 0.3s;
 `;
 
 export const Item = styled.li`
@@ -61,6 +116,12 @@ export const SmallText = styled.span`
   font-size: 0.75rem;
 `;
 
+export const SplitFieldset = styled.div`
+  display: grid;
+  grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+  grid-column-gap: 10px;
+`;
+
 export const Subtotal = styled.div`
   display: grid;
   grid-template-columns: auto auto;
@@ -77,9 +138,4 @@ export const SubtotalAmount = styled.div`
 `;
 
 export const SubtotalLabel = styled.div`
-`;
-
-export const Summary = styled.section`
-  width: 750px;
-  align-self: center;
 `;
