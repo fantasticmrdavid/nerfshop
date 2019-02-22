@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
+import { slideFadeIn } from 'styles/animations';
 import theme from 'styles/theme';
 
 export const Actions = styled.div`
@@ -29,7 +30,16 @@ export const Container = styled.div`
 
 export const Heading = styled.h1`
   font-size: 2rem;
-  margin: 1em 0;
+  margin: 1em 0 0.25em;
+`;
+
+export const Subheading = styled.h2`
+  position: relative;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: ${slideFadeIn} 0.3s normal linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 `;
 
 export const Item = styled.li`

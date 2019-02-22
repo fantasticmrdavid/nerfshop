@@ -10,7 +10,10 @@ const Routes = () => {
     <Template>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/checkout" component={Checkout} />
+        <Route path="/checkout" render={props => <Checkout {...props} section={0} />} />
+        <Route path="/checkout/shipping" render={props => <Checkout {...props} section={1} />} />
+        <Route path="/checkout/payment" render={props => <Checkout {...props} section={2} />} />
+        <Route path="/checkout/confirmation" render={props => <Checkout {...props} section={3} />} />
         { staticProducts.map(p => (
           <Route
             key={`route_${p.id}`}
