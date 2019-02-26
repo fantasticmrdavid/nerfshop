@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { reducer as formReducer } from 'redux-form';
 import cart from './cart';
+import forms from './forms';
 import nav from './nav';
 import products from './products';
 
@@ -12,11 +12,15 @@ const persistConfig = {
     key: 'cart',
     storage,
   },
+  forms: {
+    key: 'forms',
+    storage,
+  },
 };
 
 const reducers = history => combineReducers({
   cart: persistReducer(persistConfig.cart, cart),
-  form: formReducer,
+  forms: persistReducer(persistConfig.forms, forms),
   nav,
   products,
   router: connectRouter(history),

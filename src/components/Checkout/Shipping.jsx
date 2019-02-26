@@ -1,12 +1,10 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
-import Cta from 'components/Cta';
-import Form from './Form';
-import * as styles from '../styles';
+import ShippingFormContainer from 'containers/ShippingFormContainer';
+import * as styles from './styles';
 
 const ShippingDetails = () => {
   const {
-    Actions,
     CheckoutSection,
     Subheading,
   } = styles;
@@ -18,12 +16,8 @@ const ShippingDetails = () => {
       </Helmet>
       <Subheading>/ Shipping</Subheading>
       <CheckoutSection>
-        <Form />
+        <ShippingFormContainer />
       </CheckoutSection>
-      <Actions>
-        <Cta to="/checkout">Back</Cta>
-        <Cta primary to="/payment">Enter Payment Details</Cta>
-      </Actions>
     </Fragment>
   );
 };

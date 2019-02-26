@@ -62,13 +62,13 @@ const Summary = (props) => {
             <SubtotalAmount>${subtotal.toFixed(2)}</SubtotalAmount>
           </Subtotal>
         )}
+        { !isEmpty && (
+          <Actions>
+            <Cta to="/">Back</Cta>
+            <Cta primary to="/checkout/shipping">Enter Shipping Details</Cta>
+          </Actions>
+        )}
       </CheckoutSection>
-      { !isEmpty && (
-        <Actions>
-          <Cta to="/">Back</Cta>
-          <Cta primary to="/checkout/shipping">Enter Shipping Details</Cta>
-        </Actions>
-      )}
     </Fragment>
   );
 };

@@ -4,13 +4,9 @@ import { slideFadeIn } from 'styles/animations';
 import theme from 'styles/theme';
 
 export const Actions = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 50% 50%;
   margin-top: 2em;
-`;
-
-export const CheckboxFieldset = styled.div`
-  display: flex;
 `;
 
 export const CheckoutSection = styled.section`
@@ -35,52 +31,6 @@ export const ColumnHeadings = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-export const FieldLabel = styled.label`
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 500;
-`;
-
-export const FieldInput = styled.input`
-  padding: 0.5em;
-  width: 100%;
-`;
-
-export const FieldSelect = styled.select`
-  padding: 0.5em;
-  width: 100%;
-`;
-
-export const Fieldset = styled.div`
-  margin: 0.5em 0;
-`;
-
-export const FormHeading = styled.h3`
-  font-weight: 500;
-  font-size: 1.1rem;
-  margin-bottom: 0.5em;
-  grid-column-start: 1;
-  grid-column-end: span 2;
-`;
-
-export const FormSection = styled.section`
-  position: relative;
-  display: grid;
-  grid-template-columns: calc(50% - 5px) calc(50% - 5px);
-  grid-column-gap: 10px;
-  padding: 2em 0;
-  opacity: 0;
-  animation: ${slideFadeIn} 0.3s normal linear;
-  animation-fill-mode: forwards;
-  animation-delay: ${props => `${props.sectionNo * 0.25}s`};
-  border-bottom: ${props => (props.sectionNo === 1 ? `1px solid ${theme.borderColor}` : undefined)};
-`;
-
-export const FullSpanFieldset = styled.div`
-  grid-column-start: 1;
-  grid-column-end: span 2;
 `;
 
 export const Heading = styled.h1`
