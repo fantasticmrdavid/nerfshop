@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Summary from './Summary';
 import Shipping from './Shipping';
+import Payment from './Payment';
 import * as styles from './styles';
 
 const Checkout = (props) => {
   const {
+    billing,
     cart,
     products,
     section,
+    shipping,
   } = props;
 
   const {
@@ -21,14 +24,17 @@ const Checkout = (props) => {
       <Heading>Checkout</Heading>
       { section === 0 && <Summary cart={cart} products={products} /> }
       { section === 1 && <Shipping /> }
+      { section === 2 && <Payment billing={billing} cart={cart} products={products} shipping={shipping} /> }
     </Container>
   );
 };
 
 Checkout.propTypes = {
+  billing: PropTypes.object,
   cart: PropTypes.object.isRequired,
   products: PropTypes.object.isRequired,
   section: PropTypes.number,
+  shipping: PropTypes.object,
 };
 
 export default Checkout;

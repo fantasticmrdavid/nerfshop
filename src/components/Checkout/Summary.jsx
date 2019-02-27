@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Cta from 'components/Cta';
-import ProductLineItemContainer from 'containers/ProductLineItemContainer';
+import PurchaseSummary from 'components/PurchaseSummary';
 import * as styles from './styles';
 
 const Summary = (props) => {
@@ -13,23 +13,10 @@ const Summary = (props) => {
   } = props;
 
   const {
-    contents,
-    subtotal,
-  } = cart;
-
-  const {
     Actions,
     CheckoutSection,
-    Column,
-    ColumnHeadings,
-    Item,
-    List,
-    Message,
-    SmallText,
+    Section,
     Subheading,
-    Subtotal,
-    SubtotalLabel,
-    SubtotalAmount,
   } = styles;
 
   return (
@@ -39,29 +26,9 @@ const Summary = (props) => {
       </Helmet>
       <Subheading>/ Your Items</Subheading>
       <CheckoutSection>
-        <ColumnHeadings>
-          <Column>Item</Column>
-          <Column>Qty</Column>
-          <Column>Price</Column>
-        </ColumnHeadings>
-        { isEmpty ? <Message>You have no items in your cart</Message>
-          : <List>{
-            contents.map((p, i) => {
-              const { deleted, id, qty } = p;
-              return (
-                <Item key={`CheckoutProduct_${id}`} deleted={deleted}>
-                  <ProductLineItemContainer id={id} index={i} {...products[id]} qty={qty} />
-                </Item>
-              );
-            },
-          )}</List>
-        }
-        { !isEmpty && (
-          <Subtotal>
-            <SubtotalLabel>Total <SmallText>(incl GST)</SmallText>:</SubtotalLabel>
-            <SubtotalAmount>${subtotal.toFixed(2)}</SubtotalAmount>
-          </Subtotal>
-        )}
+        <Section sectionNo={0}>
+          <PurchaseSummary cart={cart} products={products} />
+        </Section>
         { !isEmpty && (
           <Actions>
             <Cta to="/">Back</Cta>

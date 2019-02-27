@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import * as styles from './styles';
 
@@ -26,6 +26,7 @@ class ProductLineItem extends Component {
       name,
       price,
       qty,
+      readOnly,
     } = this.props;
 
     const { imagesReady } = this.state;
@@ -50,8 +51,12 @@ class ProductLineItem extends Component {
           <Name>{name}</Name>
           <Qty>x{qty}</Qty>
           <QtyActions>
-            <QtyButton onClick={decrementQty}>-</QtyButton>
-            <QtyButton onClick={incrementQty}>+</QtyButton>
+            { !readOnly && (
+              <Fragment>
+                <QtyButton onClick={decrementQty}>-</QtyButton>
+                <QtyButton onClick={incrementQty}>+</QtyButton>
+              </Fragment>
+            )}
           </QtyActions>
           <Price>${(price * qty).toFixed(2, 10)}</Price>
         </Content>
@@ -69,6 +74,7 @@ ProductLineItem.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   qty: PropTypes.number.isRequired,
+  readOnly: PropTypes.bool,
 };
 
 export default ProductLineItem;

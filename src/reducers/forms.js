@@ -1,10 +1,14 @@
 import {
   BILLING_FORM_UPDATED,
+  CONTACT_DETAILS_UPDATED,
   SHIPPING_FORM_UPDATED,
 } from 'Constants';
 import { createReducer } from 'helpers/reducers';
 
 const initialState = {
+  contactDetails: {
+    email: null,
+  },
   billing: {},
   shipping: {},
 };
@@ -33,6 +37,16 @@ const reducers = {
         city: billing_city,
         state: billing_state,
         postcode: billing_postcode,
+      },
+    };
+  },
+  [CONTACT_DETAILS_UPDATED]: (state, action) => {
+    const { data } = action;
+    const { email } = data;
+    return {
+      ...state,
+      contactDetails: {
+        email,
       },
     };
   },

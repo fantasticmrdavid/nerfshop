@@ -29,7 +29,7 @@ class ShippingForm extends Component {
   handleSubmit(values) {
     const { history, submit } = this.props;
     submit(values);
-    history.push('/payment');
+    history.push('/checkout/payment');
   }
 
   render() {

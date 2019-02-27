@@ -25,13 +25,16 @@ CheckoutContainer.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const { cart, products } = state;
+  const { cart, forms, products } = state;
   const { listing } = products;
   const shouldLoadProducts = listing.length === 0;
+  const { shipping, billing } = forms;
   return {
+    billing,
     cart,
     products: arrayToObject(listing, 'id'),
     shouldLoadProducts,
+    shipping,
   };
 };
 
