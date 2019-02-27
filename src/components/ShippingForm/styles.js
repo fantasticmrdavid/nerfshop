@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
-import { slideFadeIn } from 'styles/animations';
+import { fadeIn, slideFadeIn } from 'styles/animations';
 
 export const Actions = styled.div`
   display: grid;
@@ -21,10 +21,19 @@ export const CheckoutSection = styled.section`
   align-self: center;
 `;
 
+export const Error = styled.div`
+  color: ${theme.colorRed};
+  font-size: 0.8rem;
+  padding: 0.5em 0;
+  animation: ${fadeIn} 0.3s normal linear;
+  animation-fill-mode: forwards;
+`;
+
 export const Label = styled.label`
   display: block;
   font-size: 0.9rem;
   font-weight: 500;
+  color: ${props => (props.error ? theme.colorRed : 'inherit')};
 `;
 
 export const Input = styled.input`
@@ -66,7 +75,7 @@ export const Section = styled.section`
   opacity: 0;
   animation: ${slideFadeIn} 0.3s normal linear;
   animation-fill-mode: forwards;
-  animation-delay: ${props => `${props.sectionNo * 0.25}s`};
+  animation-delay: ${props => `${props.sectionNo * 0.2}s`};
   border-bottom: ${`1px solid ${theme.borderColor}`};
 `;
 

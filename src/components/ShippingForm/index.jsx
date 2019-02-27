@@ -3,16 +3,27 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import Collapsible from 'components/Collapsible';
 import Cta from 'components/Cta';
 import { stateList } from 'data/geo';
+import getSchema from './schema';
 import * as styles from './styles';
 
 class ShippingForm extends Component {
   constructor(props) {
     super(props);
     this.boundHandleSubmit = this.handleSubmit.bind(this);
+    this.boundSetCurrentBillingSameAsShipping = this.setCurrentBillingSameAsShipping.bind(this);
+    const { billing } = props;
+    const { billingSameAsShipping } = billing;
+    this.state = {
+      currentBillingSameAsShipping: billingSameAsShipping,
+    };
+  }
+
+  setCurrentBillingSameAsShipping(e) {
+    this.setState({ currentBillingSameAsShipping: e.target.checked });
   }
 
   handleSubmit(values) {
@@ -24,10 +35,12 @@ class ShippingForm extends Component {
   render() {
     const { billing, shipping } = this.props;
     const { billingSameAsShipping } = billing;
+    const { currentBillingSameAsShipping } = this.state;
     const {
       Actions,
       Checkbox,
       CheckboxFieldset,
+      Error,
       Fieldset,
       Heading,
       HeadingContainer,
@@ -60,12 +73,15 @@ class ShippingForm extends Component {
       <Formik
         initialValues={initialValues}
         onSubmit={(values, action) => this.boundHandleSubmit(values, action)}
+        validationSchema={getSchema(currentBillingSameAsShipping)}
         render={(props) => {
           const {
+            errors,
             handleBlur,
             handleChange,
             handleSubmit,
             submitForm,
+            touched,
             values,
           } = props;
           return (
@@ -75,15 +91,18 @@ class ShippingForm extends Component {
               </HeadingContainer>
               <Section sectionNo={1}>
                 <Fieldset>
-                  <Label htmlFor="shipping_firstname">First Name</Label>
+                  <Label htmlFor="shipping_firstname" error={!!errors.shipping_firstname}>First Name</Label>
+                  { errors.shipping_firstname && touched.shipping_firstname && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.shipping_firstname}</Error> }
                   <Input name="shipping_firstname" type="text" onBlur={handleBlur} onChange={handleChange} value={values.shipping_firstname} required />
                 </Fieldset>
                 <Fieldset>
-                  <Label htmlFor="shipping_surname">Surname</Label>
+                  <Label htmlFor="shipping_surname" error={!!errors.shipping_surname}>Surname</Label>
+                  { errors.shipping_surname && touched.shipping_surname && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.shipping_surname}</Error> }
                   <Input name="shipping_surname" onBlur={handleBlur} onChange={handleChange} value={values.shipping_surname} type="text" required />
                 </Fieldset>
                 <Fieldset>
-                  <Label htmlFor="shipping_address1">Street Address</Label>
+                  <Label htmlFor="shipping_address1" error={!!errors.shipping_address1}>Street Address</Label>
+                  { errors.shipping_address1 && touched.shipping_address1 && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.shipping_address1}</Error> }
                   <Input name="shipping_address1" onBlur={handleBlur} onChange={handleChange} value={values.shipping_address1} type="text" required />
                 </Fieldset>
                 <Fieldset>
@@ -91,19 +110,22 @@ class ShippingForm extends Component {
                   <Input name="shipping_address2" onBlur={handleBlur} onChange={handleChange} value={values.shipping_address2} type="text" />
                 </Fieldset>
                 <Fieldset>
-                  <Label htmlFor="shipping_city">Suburb/City</Label>
+                  <Label htmlFor="shipping_city" error={!!errors.shipping_city}>Suburb/City</Label>
+                  { errors.shipping_city && touched.shipping_city && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.shipping_city}</Error> }
                   <Input name="shipping_city" onBlur={handleBlur} onChange={handleChange} value={values.shipping_city} type="text" />
                 </Fieldset>
                 <SplitFieldset>
                   <Fieldset>
-                    <Label htmlFor="shipping_state">State</Label>
+                    <Label htmlFor="shipping_state" error={!!errors.shipping_state}>State</Label>
+                    { errors.shipping_state && touched.shipping_state && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.shipping_state}</Error> }
                     <Select name="shipping_state" onBlur={handleBlur} onChange={handleChange} placeholder="--- Select ---" value={values.shipping_state}>
                       <option value={null} disabled>--- Select ---</option>
                       { stateList.map(s => <option key={`shipping_state_select_${s}`} value={s}>{s}</option>) }
                     </Select>
                   </Fieldset>
                   <Fieldset>
-                    <Label htmlFor="shipping_postcode">Postcode</Label>
+                    <Label htmlFor="shipping_postcode" error={!!errors.shipping_postcode}>Postcode</Label>
+                    { errors.shipping_postcode && touched.shipping_postcode && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.shipping_postcode}</Error> }
                     <Input name="shipping_postcode" onBlur={handleBlur} onChange={handleChange} value={values.shipping_postcode} type="text" />
                   </Fieldset>
                 </SplitFieldset>
@@ -112,22 +134,34 @@ class ShippingForm extends Component {
               <HeadingContainer>
                 <Heading><FontAwesomeIcon icon={faAngleRight} /> Billing Address</Heading>
                 <CheckboxFieldset>
-                  <Checkbox name="billingSameAsShipping" onBlur={handleBlur} onChange={handleChange} type="checkbox" checked={values.billingSameAsShipping} />
+                  <Checkbox
+                    name="billingSameAsShipping"
+                    onBlur={handleBlur}
+                    onChange={(e) => {
+                      handleChange(e);
+                      this.boundSetCurrentBillingSameAsShipping(e);
+                    }}
+                    type="checkbox"
+                    checked={values.billingSameAsShipping}
+                  />
                   <Label htmlFor="billingSameAsShipping">Same as Shipping Address</Label>
                 </CheckboxFieldset>
               </HeadingContainer>
               <Collapsible active={!values.billingSameAsShipping}>
                 <Section sectionNo={2}>
                   <Fieldset>
-                    <Label htmlFor="billing_firstname">First Name</Label>
+                    <Label htmlFor="billing_firstname" error={!!errors.billing_firstname}>First Name</Label>
+                    { errors.billing_firstname && touched.billing_firstname && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.billing_firstname}</Error> }
                     <Input name="billing_firstname" onBlur={handleBlur} onChange={handleChange} value={values.billing_firstname} type="text" required />
                   </Fieldset>
                   <Fieldset>
-                    <Label htmlFor="billing_surname">Surname</Label>
+                    <Label htmlFor="billing_surname" error={!!errors.billing_surname}>Surname</Label>
+                    { errors.billing_surname && touched.billing_surname && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.billing_surname}</Error> }
                     <Input name="billing_surname" onBlur={handleBlur} onChange={handleChange} value={values.billing_surname} type="text" required />
                   </Fieldset>
                   <Fieldset>
-                    <Label htmlFor="billing_address1">Street Address</Label>
+                    <Label htmlFor="billing_address1" error={!!errors.billing_address1}>Street Address</Label>
+                    { errors.billing_address1 && touched.billing_address1 && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.billing_address1}</Error> }
                     <Input name="billing_address1" onBlur={handleBlur} onChange={handleChange} value={values.billing_address1} type="text" required />
                   </Fieldset>
                   <Fieldset>
@@ -135,19 +169,22 @@ class ShippingForm extends Component {
                     <Input name="billing_address2" onBlur={handleBlur} onChange={handleChange} value={values.billing_address2} type="text" />
                   </Fieldset>
                   <Fieldset>
-                    <Label htmlFor="billing_city">Suburb/City</Label>
+                    <Label htmlFor="billing_city" error={!!errors.billing_city}>Suburb/City</Label>
+                    { errors.billing_city && touched.billing_city && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.billing_city}</Error> }
                     <Input name="billing_city" onBlur={handleBlur} onChange={handleChange} value={values.billing_city} type="text" />
                   </Fieldset>
                   <SplitFieldset>
                     <Fieldset>
-                      <Label htmlFor="billing_state">State</Label>
+                      <Label htmlFor="billing_state" error={!!errors.billing_state}>State</Label>
+                      { errors.billing_state && touched.billing_state && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.billing_state}</Error> }
                       <Select name="billing_state" onBlur={handleBlur} onChange={handleChange} placeholder="--- Select ---" value={values.billing_state}>
                         <option value={null} disabled>--- Select ---</option>
                         { stateList.map(s => <option key={`billing_state_select_${s}`} value={s}>{s}</option>) }
                       </Select>
                     </Fieldset>
                     <Fieldset>
-                      <Label htmlFor="billing_postcode">Postcode</Label>
+                      <Label htmlFor="billing_postcode" error={!!errors.billing_postcode}>Postcode</Label>
+                      { errors.billing_postcode && touched.billing_postcode && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.billing_postcode}</Error> }
                       <Input name="billing_postcode" onBlur={handleBlur} onChange={handleChange} value={values.billing_postcode} type="text" />
                     </Fieldset>
                   </SplitFieldset>

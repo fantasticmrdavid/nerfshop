@@ -3,7 +3,7 @@ const theme = {
 
   colorBlack: '#000',
   colorWhite: '#fff',
-  colorRed: 'red',
+  colorRed: 'tomato',
   colorGreen: 'green',
   colorGrey: '#ddd',
   colorCharcoal: '#333',
