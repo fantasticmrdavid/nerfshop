@@ -9,6 +9,7 @@ const Checkout = (props) => {
   const {
     billing,
     cart,
+    contactDetails,
     products,
     section,
     shipping,
@@ -24,7 +25,7 @@ const Checkout = (props) => {
       <Heading>Checkout</Heading>
       { section === 0 && <Summary cart={cart} products={products} /> }
       { section === 1 && <Shipping /> }
-      { section === 2 && <Payment billing={billing} cart={cart} products={products} shipping={shipping} /> }
+      { section === 2 && <Payment billing={billing} cart={cart} contactDetails={contactDetails} products={products} shipping={shipping} /> }
     </Container>
   );
 };
@@ -32,6 +33,7 @@ const Checkout = (props) => {
 Checkout.propTypes = {
   billing: PropTypes.object,
   cart: PropTypes.object.isRequired,
+  contactDetails: PropTypes.object.isRequired,
   products: PropTypes.object.isRequired,
   section: PropTypes.number,
   shipping: PropTypes.object,

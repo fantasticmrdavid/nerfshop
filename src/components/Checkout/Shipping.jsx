@@ -14,7 +14,7 @@ const ShippingDetails = () => {
       <Helmet>
         <title>Checkout - Shipping Details - RivalShop</title>
       </Helmet>
-      <Subheading>/ Shipping</Subheading>
+      <Subheading>/ Shipping & Billing</Subheading>
       <CheckoutSection>
         <ShippingFormContainer />
       </CheckoutSection>

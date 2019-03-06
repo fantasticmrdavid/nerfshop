@@ -33,7 +33,7 @@ class ShippingForm extends Component {
   }
 
   render() {
-    const { billing, shipping } = this.props;
+    const { billing, contactDetails, shipping } = this.props;
     const { billingSameAsShipping } = billing;
     const { currentBillingSameAsShipping } = this.state;
     const {
@@ -52,6 +52,7 @@ class ShippingForm extends Component {
     } = styles;
 
     const initialValues = {
+      email: contactDetails.email || null,
       shipping_firstname: shipping.firstname || null,
       shipping_surname: shipping.surname || null,
       shipping_address1: shipping.address1 || null,
@@ -87,9 +88,19 @@ class ShippingForm extends Component {
           return (
             <form onSubmit={handleSubmit}>
               <HeadingContainer>
-                <Heading><FontAwesomeIcon icon={faAngleRight} /> Shipping Address</Heading>
+                <Heading><FontAwesomeIcon icon={faAngleRight} /> Contact Details</Heading>
               </HeadingContainer>
               <Section sectionNo={1}>
+                <Fieldset>
+                  <Label htmlFor="email" error={!!errors.email}>Your Email</Label>
+                  { errors.email && touched.email && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.email}</Error> }
+                  <Input name="email" type="email" onBlur={handleBlur} onChange={handleChange} value={values.email} required />
+                </Fieldset>
+              </Section>
+              <HeadingContainer>
+                <Heading><FontAwesomeIcon icon={faAngleRight} /> Shipping Address</Heading>
+              </HeadingContainer>
+              <Section sectionNo={2}>
                 <Fieldset>
                   <Label htmlFor="shipping_firstname" error={!!errors.shipping_firstname}>First Name</Label>
                   { errors.shipping_firstname && touched.shipping_firstname && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.shipping_firstname}</Error> }
@@ -148,7 +159,7 @@ class ShippingForm extends Component {
                 </CheckboxFieldset>
               </HeadingContainer>
               <Collapsible active={!values.billingSameAsShipping}>
-                <Section sectionNo={2}>
+                <Section sectionNo={3}>
                   <Fieldset>
                     <Label htmlFor="billing_firstname" error={!!errors.billing_firstname}>First Name</Label>
                     { errors.billing_firstname && touched.billing_firstname && <Error><FontAwesomeIcon icon={faExclamationTriangle} /> {errors.billing_firstname}</Error> }
@@ -192,7 +203,7 @@ class ShippingForm extends Component {
               </Collapsible>
               <Actions>
                 <Cta to="/checkout">Back</Cta>
-                <Cta primary onClick={submitForm}>Enter Payment Details</Cta>
+                <Cta primary onClick={submitForm}>To Payment</Cta>
               </Actions>
             </form>
           );
@@ -204,6 +215,7 @@ class ShippingForm extends Component {
 
 ShippingForm.propTypes = {
   billing: PropTypes.object,
+  contactDetails: PropTypes.object,
   history: PropTypes.object.isRequired,
   shipping: PropTypes.object,
   submit: PropTypes.func.isRequired,

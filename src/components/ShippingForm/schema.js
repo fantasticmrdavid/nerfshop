@@ -1,5 +1,12 @@
 import * as Yup from 'yup';
 
+const contact = {
+  email: Yup.string()
+    .min(2, 'Too short!')
+    .max(255, 'Too long!')
+    .required('Please enter your email address.'),
+};
+
 const billing = {
   billing_firstname: Yup.string()
     .min(2, 'Too short!')
@@ -50,4 +57,9 @@ const shipping = {
     .required('Please enter your shipping address postcode.'),
 };
 
-export default billingSameAsShipping => Yup.object().shape(billingSameAsShipping ? shipping : { ...shipping, ...billing });
+const mandatory = {
+  ...contact,
+  ...shipping,
+};
+
+export default billingSameAsShipping => Yup.object().shape(billingSameAsShipping ? mandatory : { ...mandatory, ...billing });

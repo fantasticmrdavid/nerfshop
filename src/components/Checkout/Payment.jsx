@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import PaymentFormContainer from 'containers/PaymentFormContainer';
+import Cta from 'components/Cta';
 import PurchaseSummary from 'components/PurchaseSummary';
 import * as styles from './styles';
 
@@ -11,11 +11,13 @@ const PaymentDetails = (props) => {
   const {
     billing,
     cart,
+    contactDetails,
     products,
     shipping,
   } = props;
 
   const {
+    Actions,
     Address,
     AddressLine,
     CheckoutSection,
@@ -71,7 +73,18 @@ const PaymentDetails = (props) => {
             </Address>
           </Section>
         </SplitSection>
-        <PaymentFormContainer />
+        <Section sectionNo={3}>
+          <HeadingContainer>
+            <SectionHeading><FontAwesomeIcon icon={faAngleRight} /> Email</SectionHeading>
+          </HeadingContainer>
+          <Address>
+            <AddressLine>{contactDetails.email}</AddressLine>
+          </Address>
+        </Section>
+        <Actions>
+          <Cta to="/checkout/shipping">Back</Cta>
+          <Cta primary to="/receipt">Pay Now</Cta>
+        </Actions>
       </CheckoutSection>
     </Fragment>
   );
@@ -80,6 +93,7 @@ const PaymentDetails = (props) => {
 PaymentDetails.propTypes = {
   billing: PropTypes.object,
   cart: PropTypes.object.isRequired,
+  contactDetails: PropTypes.object.isRequired,
   products: PropTypes.object.isRequired,
   shipping: PropTypes.object.isRequired,
 };
