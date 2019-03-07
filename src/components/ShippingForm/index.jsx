@@ -52,22 +52,22 @@ class ShippingForm extends Component {
     } = styles;
 
     const initialValues = {
-      email: contactDetails.email || null,
-      shipping_firstname: shipping.firstname || null,
-      shipping_surname: shipping.surname || null,
-      shipping_address1: shipping.address1 || null,
-      shipping_address2: shipping.address2 || null,
-      shipping_city: shipping.city || null,
-      shipping_state: shipping.state || null,
-      shipping_postcode: shipping.postcode || null,
+      email: contactDetails.email || '',
+      shipping_firstname: shipping.firstname || '',
+      shipping_surname: shipping.surname || '',
+      shipping_address1: shipping.address1 || '',
+      shipping_address2: shipping.address2 || '',
+      shipping_city: shipping.city || '',
+      shipping_state: shipping.state || '',
+      shipping_postcode: shipping.postcode || '',
       billingSameAsShipping: !(billing.billingSameAsShipping === false),
-      billing_firstname: billingSameAsShipping ? shipping.firstname : billing.firstname || null,
-      billing_surname: billingSameAsShipping ? shipping.surname : billing.surname || null,
-      billing_address1: billingSameAsShipping ? shipping.address1 : billing.address1 || null,
-      billing_address2: billingSameAsShipping ? shipping.address2 : billing.address2 || null,
-      billing_city: billingSameAsShipping ? shipping.city : billing.city || null,
-      billing_state: billingSameAsShipping ? shipping.state : billing.state || null,
-      billing_postcode: billingSameAsShipping ? shipping.postcode : billing.postcode || null,
+      billing_firstname: billingSameAsShipping ? shipping.firstname : billing.firstname || '',
+      billing_surname: billingSameAsShipping ? shipping.surname : billing.surname || '',
+      billing_address1: billingSameAsShipping ? shipping.address1 : billing.address1 || '',
+      billing_address2: billingSameAsShipping ? shipping.address2 : billing.address2 || '',
+      billing_city: billingSameAsShipping ? shipping.city : billing.city || '',
+      billing_state: billingSameAsShipping ? shipping.state : billing.state || '',
+      billing_postcode: billingSameAsShipping ? shipping.postcode : billing.postcode || '',
     };
 
     return (

@@ -8,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const {
   NODE_ENV,
+  PAYPAL_CLIENT_ID,
 } = process.env;
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -59,6 +60,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV),
+        PAYPAL_CLIENT_ID: JSON.stringify(PAYPAL_CLIENT_ID),
       },
     }),
     new CopyWebpackPlugin([

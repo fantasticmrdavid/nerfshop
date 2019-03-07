@@ -84,6 +84,7 @@ const PaymentDetails = (props) => {
         </Section>
         <Actions>
           <Cta to="/checkout/shipping">Back</Cta>
+          <Cta primary to="/receipt">Pay Now</Cta>
           <PayPalButtonContainer />
         </Actions>
       </CheckoutSection>
