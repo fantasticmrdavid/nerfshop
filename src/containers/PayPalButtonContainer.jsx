@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { PayPalButton } from 'react-paypal-button-v2';
+import { emptyCart } from 'actions/cart';
 import { createOrder } from 'actions/orders';
 import { arrayToObject } from 'helpers/array';
 
@@ -11,6 +12,7 @@ const { PAYPAL_CLIENT_ID } = process.env;
 const PayPalButtonContainer = (props) => {
   const {
     amount,
+    clearCart,
     createPayPalOrder,
     history,
     orderParams,
@@ -31,6 +33,7 @@ const PayPalButtonContainer = (props) => {
           ...orderParams,
           id,
         });
+        clearCart();
         history.push(`/order/${id}/confirmation`);
       }}
       onError={e => console.error(e)}
@@ -40,6 +43,7 @@ const PayPalButtonContainer = (props) => {
 
 PayPalButtonContainer.propTypes = {
   amount: PropTypes.number.isRequired,
+  clearCart: PropTypes.func.isRequired,
   createPayPalOrder: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   orderParams: PropTypes.object.isRequired,
@@ -69,6 +73,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    clearCart: () => dispatch(emptyCart()),
     createPayPalOrder: params => dispatch(createOrder(params)),
   };
 };

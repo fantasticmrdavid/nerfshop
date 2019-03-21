@@ -18,7 +18,7 @@ class ShippingForm extends Component {
     const { billing } = props;
     const { billingSameAsShipping } = billing;
     this.state = {
-      currentBillingSameAsShipping: billingSameAsShipping,
+      currentBillingSameAsShipping: !(billingSameAsShipping === false),
     };
   }
 
@@ -85,6 +85,7 @@ class ShippingForm extends Component {
             touched,
             values,
           } = props;
+
           return (
             <form onSubmit={handleSubmit}>
               <HeadingContainer>

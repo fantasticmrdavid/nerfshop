@@ -1,6 +1,7 @@
 import {
   ADDED_PRODUCT_TO_CART,
   CART_PRODUCT_QTY_UPDATED,
+  CART_EMPTIED,
   MARKED_PRODUCT_FOR_REMOVAL,
   REMOVED_PRODUCT_FROM_CART,
   SUBTOTAL_UPDATED,
@@ -44,3 +45,5 @@ export const updateCartQty = (product, qty) => (dispatch) => {
 
   dispatch(updateCartSubtotal());
 };
+
+export const emptyCart = () => dispatch => dispatch({ type: CART_EMPTIED });

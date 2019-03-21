@@ -8,7 +8,7 @@ const OrderSummary = (props) => {
 
   const {
     items,
-    subtotal,
+    amount,
   } = order;
 
   const {
@@ -31,13 +31,13 @@ const OrderSummary = (props) => {
       </ColumnHeadings>
       <List>{ items.map((item, i) => (
         <Item key={`OrderProduct_${item.id}`}>
-          <ProductLineItemContainer index={i} {...item} />
+          <ProductLineItemContainer index={i} {...item} readOnly />
         </Item>),
       )}
       </List>
       <Subtotal>
         <SubtotalLabel>Total <SmallText>(incl GST)</SmallText>:</SubtotalLabel>
-        <SubtotalAmount>${subtotal.toFixed(2)}</SubtotalAmount>
+        <SubtotalAmount>${amount.toFixed(2)}</SubtotalAmount>
       </Subtotal>
     </Fragment>
   );

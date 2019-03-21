@@ -1,5 +1,6 @@
 import {
   ADDED_PRODUCT_TO_CART,
+  CART_EMPTIED,
   CART_PRODUCT_QTY_UPDATED,
   MARKED_PRODUCT_FOR_REMOVAL,
   REMOVED_PRODUCT_FROM_CART,
@@ -33,6 +34,7 @@ const reducers = {
       contents: alreadyInCart ? newContents : [...newContents, { id: product.id, qty: 1 }],
     };
   },
+  [CART_EMPTIED]: () => initialState,
   [CART_PRODUCT_QTY_UPDATED]: (state, action) => {
     const { contents } = state;
     const { product, qty } = action;

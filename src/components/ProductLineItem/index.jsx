@@ -47,7 +47,7 @@ class ProductLineItem extends Component {
       <Container id={`product_${id}`} index={index}>
         <Image src={images[0]} ready={imagesReady} />
         <ImagePreloader onLoad={this.boundShow} src={images[0]} ready={imagesReady} />
-        <Content>
+        <Content readOnly={readOnly}>
           <Name>{name}</Name>
           <Qty>x{qty}</Qty>
           <QtyActions>

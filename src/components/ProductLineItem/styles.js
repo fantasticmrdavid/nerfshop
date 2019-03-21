@@ -18,7 +18,7 @@ export const Content = styled.div`
   position: relative;
   display: grid;
   width: 100%;
-  grid-template-columns: auto 30px 45px 140px;
+  grid-template-columns: ${props => (props.readOnly ? 'auto 80px 0px 140px' : 'auto 30px 45px 140px')};
   align-items: center;
   font-size: 1rem;
   padding: 0 1em;
@@ -55,6 +55,7 @@ export const Price = styled.div`
 `;
 
 export const Qty = styled.div`
+  text-align: center;
 `;
 
 export const QtyActions = styled.div`

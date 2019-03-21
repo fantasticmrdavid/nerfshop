@@ -21,6 +21,7 @@ const reducers = {
             return {
               color: i.color,
               id: i.id,
+              images: i.images,
               name: i.name,
               price: i.price,
               qty: i.qty,

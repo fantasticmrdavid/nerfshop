@@ -15,6 +15,10 @@ export const Address = styled.div`
 export const AddressLine = styled.div`
 `;
 
+export const BoldCopy = styled.span`
+  font-weight: 500;
+`;
+
 export const CheckoutSection = styled.section`
   width: 750px;
   align-self: center;
@@ -23,9 +27,11 @@ export const CheckoutSection = styled.section`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 1.1rem;
 `;
 
 export const Copy = styled.div`
+  margin: 0.5em 0 1.5em;
 `;
 
 export const Heading = styled.h1`
@@ -42,6 +48,12 @@ export const HeadingContainer = styled.div`
 `;
 
 export const Info = styled.div`
+  margin: 1em 0;
+`;
+
+export const InfoLabel = styled.span`
+  font-weight: 500;
+  margin-right: 0.5em;
 `;
 
 export const Section = styled.section`

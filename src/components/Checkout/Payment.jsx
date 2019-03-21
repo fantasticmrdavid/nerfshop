@@ -65,7 +65,6 @@ const PaymentDetails = (props) => {
                   <Fragment>
                     <AddressLine>{billing.firstname} {billing.surname}</AddressLine>
                     <AddressLine>{!!billing.address2 ? `${billing.address2}, ` : ''}{billing.address1}</AddressLine>
-                    <AddressLine>{`${billing.address2}, `}{billing.address1}</AddressLine>
                     <AddressLine>{billing.city}</AddressLine>
                     <AddressLine>{billing.state} {billing.postcode}</AddressLine>
                   </Fragment>

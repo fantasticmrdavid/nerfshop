@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import OrderSummary from 'components/OrderSummary';
 import * as styles from './styles';
 
@@ -8,27 +9,36 @@ const OrderConfirmation = (props) => {
 
   const {
     id,
-    email,
-    status,
+    contactDetails,
   } = order;
 
   const {
+    BoldCopy,
     Container,
     Copy,
     Heading,
     Info,
-    Subheading,
+    InfoLabel,
   } = styles;
 
   return (
-    <Container>
-      <Heading>Order Confirmed!</Heading>
-      <Info>Order No: {id}</Info>
-      <Info>Status: {status}</Info>
-      <Copy>{`We've received your order and will process it shortly. You'll receive an email notification at ${email} once it's shipped.`}</Copy>
-      <Subheading>Order Details</Subheading>
-      <OrderSummary order={order} />
-    </Container>
+    <Fragment>
+      <Helmet>
+        <title>Order Confirmed! - RivalShop</title>
+      </Helmet>
+      <Container>
+        <Heading>Order Confirmed!</Heading>
+        <Info>
+          <InfoLabel>Order No:</InfoLabel>{id}
+        </Info>
+        <Copy>
+          {'We\'ve received your order and will process it shortly.'}<br />
+          {'You\'ll receive an email notification at '}<BoldCopy>{contactDetails.email}</BoldCopy>{' once it\'s shipped.'}
+        </Copy>
+        <InfoLabel>Order Details:</InfoLabel>
+        <OrderSummary order={order} />
+      </Container>
+    </Fragment>
   );
 };
 
