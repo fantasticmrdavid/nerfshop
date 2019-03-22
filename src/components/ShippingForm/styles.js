@@ -42,7 +42,7 @@ export const Input = styled.input`
 `;
 
 export const Select = styled.select`
-  height: 28px;
+  height: 35px;
   width: 100%;
 `;
 

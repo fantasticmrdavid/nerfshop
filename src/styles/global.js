@@ -15,6 +15,9 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.2;
     height: 100%;
   }
+  input, select {
+    font-size: 0.9rem;
+  }
 `;
 
 export default GlobalStyles;
