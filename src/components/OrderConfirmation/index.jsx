@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import AnimatedTick from 'components/AnimatedTick';
 import OrderSummary from 'components/OrderSummary';
 import * as styles from './styles';
 
@@ -17,6 +18,7 @@ const OrderConfirmation = (props) => {
     Container,
     Copy,
     Heading,
+    IconContainer,
     Info,
     InfoLabel,
   } = styles;
@@ -27,7 +29,8 @@ const OrderConfirmation = (props) => {
         <title>Order Confirmed! - RivalShop</title>
       </Helmet>
       <Container>
-        <Heading>Order Confirmed!</Heading>
+        <Heading>Order Confirmed<IconContainer><AnimatedTick /></IconContainer>
+        </Heading>
         <Info>
           <InfoLabel>Order No:</InfoLabel>{id}
         </Info>

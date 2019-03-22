@@ -35,6 +35,8 @@ export const Copy = styled.div`
 `;
 
 export const Heading = styled.h1`
+  display: flex;
+  align-items: center;
   font-size: 2rem;
   margin: 1em 0 0.25em;
 `;
@@ -45,6 +47,13 @@ export const HeadingContainer = styled.div`
   &:first-of-type {
     margin-top: 1em;
   }
+`;
+
+export const IconContainer = styled.div`
+  position: relative;
+  left: -0.5em;
+  display: inline-block;
+  transform: scale(0.5);
 `;
 
 export const Info = styled.div`
