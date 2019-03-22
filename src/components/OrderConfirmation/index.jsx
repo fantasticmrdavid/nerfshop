@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import AnimatedTick from 'components/AnimatedTick';
+import Cta from 'components/Cta';
 import OrderSummary from 'components/OrderSummary';
 import * as styles from './styles';
 
@@ -14,6 +15,7 @@ const OrderConfirmation = (props) => {
   } = order;
 
   const {
+    Actions,
     BoldCopy,
     Container,
     Copy,
@@ -40,6 +42,9 @@ const OrderConfirmation = (props) => {
         </Copy>
         <InfoLabel>Order Details:</InfoLabel>
         <OrderSummary order={order} />
+        <Actions>
+          <Cta to="/" primary>Return to Home</Cta>
+        </Actions>
       </Container>
     </Fragment>
   );
