@@ -25,6 +25,7 @@ class ProductCard extends Component {
       name,
       price,
       qty,
+      type,
     } = this.props;
 
     const { imagesReady } = this.state;
@@ -43,7 +44,7 @@ class ProductCard extends Component {
 
     return (
       <Container id={`product_${id}`}>
-        <Image src={images[0]} ready={imagesReady} />
+        <Image src={images[0]} ready={imagesReady} type={type} />
         <ImagePreloader onLoad={this.boundShow} src={images[0]} ready={imagesReady} />
         <Content>
           <Name>{name}</Name>
@@ -67,6 +68,7 @@ ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   qty: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default ProductCard;

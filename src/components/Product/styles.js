@@ -21,6 +21,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
   left: 0px;
   bottom: 0px;
   width: 100%;
@@ -55,7 +59,8 @@ export const LargePriceText = styled.span`
 `;
 
 export const Name = styled.div`
-  font-size: 1.25rem;
+  font-size:  ${props => (props.length > 28 ? '1.1rem' : '1.25rem')};
+  margin-bottom: ${props => (props.length > 28 ? '0.25em' : undefined)};
 `;
 
 export const Price = styled.div`

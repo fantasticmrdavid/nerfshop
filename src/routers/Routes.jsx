@@ -3,8 +3,12 @@ import { Switch, Route } from 'react-router';
 import Home from 'views/Home';
 import Checkout from 'views/Checkout';
 import OrderConfirmation from 'views/OrderConfirmation';
+import Products from 'views/Products';
 import Template from 'components/Template';
 import staticProducts from 'data/products';
+
+const blasters = staticProducts.filter(p => p.type === 'blaster');
+const accessories = staticProducts.filter(p => p.type === 'accessory');
 
 const Routes = () => {
   return (
@@ -20,6 +24,22 @@ const Routes = () => {
             key={`route_${p.id}`}
             path={`/${p.slug}`}
             render={props => <Home {...props} product={p} />}
+          />
+        ))}
+        <Route exact path="/blasters" render={props => <Products {...props} category="blaster" />} />
+        { blasters.map(p => (
+          <Route
+            key={`route_blaster_${p.id}`}
+            path={`/blasters/${p.slug}`}
+            render={props => <Products {...props} category="blaster" product={p} />}
+          />
+        ))}
+        <Route exact path="/accessories" render={props => <Products {...props} category="accessory" />} />
+        { accessories.map(p => (
+          <Route
+            key={`route_accessory_${p.id}`}
+            path={`/accessories/${p.slug}`}
+            render={props => <Products {...props} category="accessory" product={p} />}
           />
         ))}
       </Switch>

@@ -18,6 +18,7 @@ const ProductDetails = (props) => {
     price,
     priming,
     slamFire,
+    type,
   } = props;
 
   const {
@@ -41,13 +42,15 @@ const ProductDetails = (props) => {
           <Name>{name}</Name>
           <Price>$<LargePriceText>{price}</LargePriceText>.00</Price>
         </Row>
-        <Features>
-          <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} showLabel />
-          <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} showLabel />
-          { slamFire && <FeatureIcon type="slamFire" showLabel /> }
-          { priming === 'Fully Automatic' && <FeatureIcon type="automatic" showLabel /> }
-          { priming === 'Semi-Automatic' && <FeatureIcon type="semiAutomatic" showLabel /> }
-        </Features>
+        { type === 'blaster' &&
+          <Features>
+            <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} showLabel />
+            <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} showLabel />
+            { slamFire && <FeatureIcon type="slamFire" showLabel /> }
+            { priming === 'Fully Automatic' && <FeatureIcon type="automatic" showLabel /> }
+            { priming === 'Semi-Automatic' && <FeatureIcon type="semiAutomatic" showLabel /> }
+          </Features>
+        }
         <Description>{description}</Description>
         <Actions>
           <Cta onClick={onClose}>Close</Cta>
@@ -74,6 +77,7 @@ ProductDetails.propTypes = {
   price: PropTypes.number.isRequired,
   priming: PropTypes.string,
   slamFire: PropTypes.bool,
+  type: PropTypes.string.isRequired,
 };
 
 export default ProductDetails;

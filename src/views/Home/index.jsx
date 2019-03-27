@@ -9,7 +9,7 @@ const Home = ({ product }) => {
       <Helmet>
         <title>RivalShop - Your Aussie source for Nerf Rival gear</title>
       </Helmet>
-      <ProductListContainer selected={product} />
+      <ProductListContainer selected={product} category="blaster" />
     </Fragment>
   );
 };

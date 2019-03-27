@@ -12,7 +12,7 @@ const ProductDetailsContainer = (props) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const { history } = ownProps;
+  const { history, slug } = ownProps;
   return {
     addToCart: () => {
       const { id } = ownProps;
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       setTimeout(() => { dispatch(hideCartPopover()); }, CART_POPOVER_AUTOHIDE_DURATION);
     },
     onClose: () => {
-      history.push('/');
+      history.push(window.location.pathname.replace(`/${slug}`, ''));
       dispatch(deselectProduct());
     },
   };

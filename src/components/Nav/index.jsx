@@ -17,6 +17,7 @@ const Nav = ({
     CartIcon,
     Container,
     Logo,
+    Item,
     RightSection,
     Spacer,
   } = styles;
@@ -29,11 +30,19 @@ const Nav = ({
           <Logo>RivalShop</Logo>
         </Link>
         <RightSection>
-          <CartIcon focused={cartShown} onClick={cartShown ? hideCart : showCart}>
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </CartIcon>
-          <CartCount count={cartCount} onClick={cartShown ? hideCart : showCart}>{cartCount}</CartCount>
-          <CartPopoverContainer />
+          <Item>
+            <Link href="/blasters" to="/blasters">blasters</Link>
+          </Item>
+          <Item>
+            <Link href="/accessories" to="/accessories">accessories</Link>
+          </Item>
+          <Item>
+            <CartIcon focused={cartShown} onClick={cartShown ? hideCart : showCart}>
+              <FontAwesomeIcon icon={faShoppingCart} />
+            </CartIcon>
+            <CartCount count={cartCount} onClick={cartShown ? hideCart : showCart}>{cartCount}</CartCount>
+            <CartPopoverContainer />
+          </Item>
         </RightSection>
       </Container>
     </Fragment>

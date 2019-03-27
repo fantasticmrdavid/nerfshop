@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { path } from 'ramda';
 import SideDrawer from 'components/SideDrawer';
 import ProductDetailsContainer from 'containers/ProductDetailsContainer';
 
@@ -7,7 +8,7 @@ const ProductDrawer = (props) => {
   const { active, onOutsideClick, product } = props;
 
   return (
-    <SideDrawer id="ProductDrawer" active={active} onOutsideClick={onOutsideClick}>
+    <SideDrawer id="ProductDrawer" active={active} onOutsideClick={() => onOutsideClick(path(['slug'], product))}>
       { active && <ProductDetailsContainer {...product} /> }
     </SideDrawer>
   );

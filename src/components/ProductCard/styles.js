@@ -27,6 +27,7 @@ export const Image = styled.div`
   flex-shrink: 0;
   width: 100px;
   height: 75px;
+  margin: ${props => (props.type === 'accessory' ? '0.5em 0' : 'undefined')};
   background-image: ${props => `url(${props.src})`};
   background-size: contain;
   background-repeat: no-repeat;

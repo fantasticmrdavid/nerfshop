@@ -109,4 +109,31 @@ export default [
     loadingMechanism: 'External Magazine',
     slamFire: false,
   },
+  {
+    id: 'rarm01',
+    name: '18-Round Refill & 12-Round Magazine',
+    slug: 'refill12mag',
+    type: 'accessory',
+    series: 'Rival',
+    price: 25,
+    description: <Fragment>Stay loaded with this 18 round refill and extra 12-round magazine.</Fragment>,
+    capacity: 18,
+    images: [
+      '/assets/images/products/rarm01/01.jpg',
+    ],
+  },
+  {
+    id: 'rar50b01',
+    name: '50-Round Refill (Team Blue)',
+    slug: 'refill50blue',
+    type: 'accessory',
+    series: 'Rival',
+    price: 25,
+    description: <Fragment>Stay loaded with this 50 round team blue refill.</Fragment>,
+    color: 'blue',
+    capacity: 50,
+    images: [
+      '/assets/images/products/rar50b01/01.jpg',
+    ],
+  },
 ];

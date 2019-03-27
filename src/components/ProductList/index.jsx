@@ -12,7 +12,7 @@ const ProductList = ({ products }) => {
   return (
     <Fragment>
       <List>
-        { products.map((p, i) => <Item key={`product_${p.id}`}><ProductContainer {...p} index={i} type="list" /></Item>) }
+        { products.map((p, i) => <Item key={`product_${p.id}`}><ProductContainer {...p} index={i} /></Item>) }
       </List>
       <Note>All prices in Australian Dollars (AUD) and include GST</Note>
     </Fragment>

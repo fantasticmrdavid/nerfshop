@@ -18,16 +18,20 @@ export const Popover = styled.div`
   position: absolute;
   max-height: ${props => (props.active ? `${(props.itemCount + 2) * 85}px` : '0px')};
   width: ${props => (!props.isEmpty ? '370px' : 'auto')};
-  top: 46px;
+  top: 44px;
   right: 0px;
   transition: 0.3s;
   z-index: 11;
   color: ${theme.colorFont};
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: ${theme.colorWhite};
   box-shadow: ${theme.dropShadow};
   font-size: 1rem;
   opacity: ${props => (props.active ? 1 : 0)};
   overflow: hidden;
+
+  ${media.tablet`
+    width: ${props => (!props.isEmpty ? '425px' : 'auto')};
+  `};
 `;
 
 export const Item = styled.li`
@@ -35,7 +39,7 @@ export const Item = styled.li`
   animation: ${props => (props.highlightType === 'added' ? css`${highlightPulse(transparentize(0.7, theme.colorBlue))} 1.5s linear` : 'none')};
   animation-fill-mode: forwards;
   font-weight: ${props => (props.highlightType === 'added' ? 500 : 300)};
-  max-height: ${props => (props.deleted ? '0px' : '100px')};
+  max-height: ${props => (props.deleted ? '0px' : '120px')};
   opacity: ${props => (props.deleted ? 0 : 1)};
   overflow: hidden;
   transition: 0.3s;

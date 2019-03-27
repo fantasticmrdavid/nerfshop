@@ -46,13 +46,15 @@ const Product = (props) => {
       <Content>
         <TopRow>
           <div>
-            <Name>{name}</Name>
+            <Name length={name.length}>{name}</Name>
             <Price>$<LargePriceText>{price}</LargePriceText></Price>
           </div>
-          <Features>
-            <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} />
-            <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} />
-          </Features>
+          { type === 'blaster' &&
+            <Features>
+              <FeatureIcon type="capacity" capacity={capacity} loadingMechanism={loadingMechanism} />
+              <FeatureIcon type="firingMechanism" firingMechanism={firingMechanism} priming={priming} />
+            </Features>
+          }
         </TopRow>
         <Actions>
           <Cta className="ignoreDrawerCollapse" focused={selected} onClick={onSelect}>Details</Cta>

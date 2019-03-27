@@ -21,9 +21,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { history } = ownProps;
   return {
-    onOutsideClick: () => {
+    onOutsideClick: (slug) => {
       dispatch(deselectProduct());
-      history.push('/');
+      if (!!slug) history.push(window.location.pathname.replace(`/${slug}`, ''));
     },
   };
 };

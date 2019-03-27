@@ -41,6 +41,11 @@ export const Container = styled.nav`
   `};
 `;
 
+export const Item = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const Logo = styled.div`
   position: relative;
   font-size: 2rem;
@@ -49,10 +54,12 @@ export const Logo = styled.div`
 
 export const RightSection = styled.div`
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto 45px;
   align-items: center;
   justify-content: flex-end;
-  font-size: 1.25rem;
+  grid-column-gap: 25px;
+  font-size: 1.1rem;
   width: 50%;
 `;
 

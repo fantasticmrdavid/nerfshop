@@ -32,13 +32,13 @@ ProductListContainer.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const { selected } = ownProps;
+  const { category, selected } = ownProps;
   const { products } = state;
   const { listing } = products;
   const shouldLoadProducts = listing.length === 0;
   const shouldSelectProduct = !!selected;
   return {
-    products: listing,
+    products: !!category ? listing.filter(p => p.type === category) : listing,
     selected,
     shouldLoadProducts,
     shouldSelectProduct,
