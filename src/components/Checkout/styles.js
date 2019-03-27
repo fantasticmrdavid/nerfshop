@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 import { slideFadeIn } from 'styles/animations';
+import { media } from 'styles/utils';
 
 export const Actions = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
-  margin-top: 2em;
+  grid-template-columns: 100%;
+
+  ${media.tablet`
+    margin-top: 2em;
+    grid-template-columns: 40% 60%;
+  `};
 `;
 
 export const Address = styled.div`
@@ -16,13 +21,20 @@ export const AddressLine = styled.div`
 `;
 
 export const CheckoutSection = styled.section`
-  width: 750px;
+  width: 100%;
   align-self: center;
+  flex: 1;
+  max-width: 750px;
 `;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0 1em;
+
+  ${media.desktop`
+    padding: 0;
+  `};
 `;
 
 export const Heading = styled.h1`
@@ -57,8 +69,12 @@ export const SectionHeading = styled.h3`
 
 export const SplitSection = styled.div`
   display: grid;
-  grid-template-columns: calc(50% - 5px) calc(50% - 5px);
-  grid-column-gap: 10px;
+  grid-template-columns: 100%;
+
+  ${media.tablet`
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    grid-column-gap: 10px;
+  `};
 `;
 
 export const Subheading = styled.h2`

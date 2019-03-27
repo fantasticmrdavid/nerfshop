@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from 'styles/utils';
 
 export const Actions = styled.div`
   display: flex;
@@ -9,9 +10,13 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 275px;
+  flex: 1;
   opacity: ${props => (props.blurred ? 0.5 : 1)};
   transition: 0.3s;
+
+  ${media.desktop`
+    width: 275px;
+  `};
 `;
 
 export const Content = styled.div`

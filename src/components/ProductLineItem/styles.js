@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { fadeIn, slideFadeIn } from 'styles/animations';
 import theme from 'styles/theme';
+import { media } from 'styles/utils';
 
 export const Container = styled.div`
   position: relative;
@@ -18,10 +19,14 @@ export const Content = styled.div`
   position: relative;
   display: grid;
   width: 100%;
-  grid-template-columns: ${props => (props.readOnly ? 'auto 80px 0px 140px' : 'auto 30px 45px 140px')};
+  grid-template-columns: ${props => (props.readOnly ? 'auto 80px 0px auto' : 'auto 30px 45px auto')};
   align-items: center;
   font-size: 1rem;
   padding: 0 1em;
+
+  ${media.tablet`
+    grid-template-columns: ${props => (props.readOnly ? 'auto 80px 0px 140px' : 'auto 30px 45px 140px')};
+  `};
 `;
 
 export const Image = styled.div`

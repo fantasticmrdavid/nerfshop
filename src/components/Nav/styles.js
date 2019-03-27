@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
+import { media } from 'styles/utils';
 
 export const CartCount = styled.div`
   display: flex;
@@ -31,9 +32,13 @@ export const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 2em;
+  padding: 1em;
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: ${theme.dropShadow};
+
+  ${media.tablet`
+    padding: 1em 2em;
+  `};
 `;
 
 export const Logo = styled.div`

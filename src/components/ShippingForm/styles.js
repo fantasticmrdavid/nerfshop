@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
 import { fadeIn, slideFadeIn } from 'styles/animations';
+import { media } from 'styles/utils';
 
 export const Actions = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 100%;
   justify-content: space-between;
-  margin-top: 2em;
+
+  ${media.tablet`
+    margin-top: 2em;
+    grid-template-columns: 40% 60%;
+  `};
 `;
 
 export const Checkbox = styled.input`
@@ -69,14 +74,18 @@ export const HeadingContainer = styled.div`
 export const Section = styled.section`
   position: relative;
   display: grid;
-  grid-template-columns: calc(50% - 5px) calc(50% - 5px);
-  grid-column-gap: 10px;
+  grid-template-columns: 100%;
   padding: 1em 0 2em;
   opacity: 0;
   animation: ${slideFadeIn} 0.3s normal linear;
   animation-fill-mode: forwards;
   animation-delay: ${props => `${props.sectionNo * 0.2}s`};
   border-bottom: ${`1px solid ${theme.borderColor}`};
+
+  ${media.tablet`
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    grid-column-gap: 10px;
+  `};
 `;
 
 export const SplitFieldset = styled.div`

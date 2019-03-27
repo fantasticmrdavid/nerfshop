@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 import { fadeIn } from 'styles/animations';
+import { media } from 'styles/utils';
 
 export const Actions = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  flex-direction: column;
+
+  ${media.desktop`
+    flex-direction: row;
+    justify-content: space-between;
+  `};
 `;
 
 export const Container = styled.div`

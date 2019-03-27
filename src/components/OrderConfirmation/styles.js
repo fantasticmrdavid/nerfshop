@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import { media } from 'styles/utils';
 
 export const Actions = styled.div`
   display: grid;
-  grid-template-columns: 33%;
+  grid-template-columns: 100%;
   justify-content: center;
   margin-top: 2em;
+
+  ${media.desktop`
+    grid-template-columns: 33%;
+  `};
 `;
 
 export const BoldCopy = styled.span`
@@ -15,6 +20,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 1.1rem;
+  padding: 0 1em;
+
+  ${media.desktop`
+    padding: 0;
+  `};
 `;
 
 export const Copy = styled.div`
@@ -25,7 +35,10 @@ export const Heading = styled.h1`
   display: flex;
   align-items: center;
   font-size: 2rem;
-  margin: 1em 0 0.25em;
+
+  ${media.tablet`
+    margin-top: 1em;
+  `};
 `;
 
 export const IconContainer = styled.div`
@@ -41,5 +54,14 @@ export const Info = styled.div`
 
 export const InfoLabel = styled.span`
   font-weight: 500;
-  margin-right: 0.5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+  font-size: 1.25rem;
+
+  ${media.tablet`
+    text-align: left;
+    margin-right: 0.5em;
+    padding: 0;
+    font-size: inherit;
+  `};
 `;

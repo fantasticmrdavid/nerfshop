@@ -17,6 +17,7 @@ export const Button = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: ${props => (props.primary ? theme.colorBlack : theme.colorGrey)};
+    background-color: ${props => (props.primary ? theme.colorRivalYellow : theme.colorGrey)};
+    color: ${props => (props.primary ? theme.colorBlack : undefined)};
   }
 `;

@@ -1,20 +1,15 @@
 import { css } from 'styled-components';
 
-const widthSizes = {
-  xsmall: 400,
-  small: 768,
-  medium: 1024,
-  large: 1280,
-  xlarge: 1440,
+const mediaSizes = {
+  desktop: 950,
+  tablet: 576,
 };
 
-export const media = Object.keys(widthSizes).reduce((accumulator, label) => {
-  const emSize = widthSizes[label] / 16;
-  /* eslint-disable */
-  accumulator[label] = (...args) => css`
-  @media (min-width: ${emSize}em) {
-    ${css(...args)}
-  }`;
-  /* eslint-enable */
-  return accumulator;
+export const media = Object.keys(mediaSizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${mediaSizes[label] / 16}em) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
 }, {});

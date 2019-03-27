@@ -2,10 +2,16 @@ import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import { highlightPulse } from 'styles/animations';
 import theme from 'styles/theme';
+import { media } from 'styles/utils';
 
 export const Actions = styled.div`
-  display: flex;
+  display: grid;
   justify-content: space-between;
+  grid-template-columns: 100%;
+
+  ${media.tablet`
+    grid-template-columns: 40% 60%;
+  `};
 `;
 
 export const Popover = styled.div`
