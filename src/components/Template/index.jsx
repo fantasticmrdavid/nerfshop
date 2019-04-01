@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Footer from 'components/Footer';
 import NavContainer from 'containers/NavContainer';
+import NavDrawerContainer from 'containers/NavDrawerContainer';
 import ProductDrawerContainer from 'containers/ProductDrawerContainer';
 import GlobalStyles from 'styles/global';
 import * as styles from './styles';
@@ -25,6 +26,7 @@ const Template = ({ children }) => {
           {children}
         </Content>
         <Footer />
+        <NavDrawerContainer />
         <ProductDrawerContainer />
       </Container>
     </Fragment>

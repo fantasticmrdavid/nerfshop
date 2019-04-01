@@ -26,13 +26,18 @@ class SideDrawer extends Component {
   }
 
   render() {
-    const { active, children, id } = this.props;
+    const {
+      active,
+      children,
+      direction,
+      id,
+    } = this.props;
     const {
       Drawer,
     } = styles;
 
     return (
-      <Drawer id={id} active={active}>
+      <Drawer id={id} active={active} direction={direction}>
         { children }
       </Drawer>
     );
@@ -42,6 +47,7 @@ class SideDrawer extends Component {
 SideDrawer.propTypes = {
   active: PropTypes.bool,
   children: PropTypes.node,
+  direction: PropTypes.string,
   id: PropTypes.string,
   onOutsideClick: PropTypes.func,
 };

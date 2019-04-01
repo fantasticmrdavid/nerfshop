@@ -8,7 +8,14 @@ export const Drawer = styled.aside`
   height: 100%;
   min-width: 300px;
   top: 0px;
-  right: ${props => (props.active ? '0px' : '-600px')};
+  left: ${(props) => {
+    if (props.direction === 'right') return undefined;
+    return props.active ? '0px' : '-600px';
+  }};
+  right: ${(props) => {
+    if (props.direction !== 'right') return undefined;
+    return props.active ? '0px' : '-600px';
+  }};
   z-index: 2;
   display: flex;
   padding: 1em 2em;

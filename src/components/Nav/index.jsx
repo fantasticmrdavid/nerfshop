@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import CartPopoverContainer from 'containers/CartPopoverContainer';
 import * as styles from './styles';
 
@@ -11,13 +11,17 @@ const Nav = ({
   cartShown,
   hideCart,
   showCart,
+  showDrawer,
 }) => {
   const {
     CartCount,
     CartIcon,
     Container,
-    Logo,
+    DesktopItem,
     Item,
+    LeftSection,
+    Logo,
+    MobileNavIcon,
     RightSection,
     Spacer,
   } = styles;
@@ -26,16 +30,21 @@ const Nav = ({
     <Fragment>
       <Spacer />
       <Container>
+        <LeftSection>
+          <MobileNavIcon onClick={showDrawer}>
+            <FontAwesomeIcon icon={faBars} />
+          </MobileNavIcon>
+        </LeftSection>
         <Link href="/" to="/">
           <Logo>RivalShop</Logo>
         </Link>
         <RightSection>
-          <Item>
+          <DesktopItem>
             <Link href="/blasters" to="/blasters">blasters</Link>
-          </Item>
-          <Item>
+          </DesktopItem>
+          <DesktopItem>
             <Link href="/accessories" to="/accessories">accessories</Link>
-          </Item>
+          </DesktopItem>
           <Item>
             <CartIcon focused={cartShown} onClick={cartShown ? hideCart : showCart}>
               <FontAwesomeIcon icon={faShoppingCart} />
@@ -54,6 +63,7 @@ Nav.propTypes = {
   cartShown: PropTypes.bool,
   hideCart: PropTypes.func.isRequired,
   showCart: PropTypes.func.isRequired,
+  showDrawer: PropTypes.func.isRequired,
 };
 
 export default Nav;

@@ -8,7 +8,12 @@ const ProductDrawer = (props) => {
   const { active, onOutsideClick, product } = props;
 
   return (
-    <SideDrawer id="ProductDrawer" active={active} onOutsideClick={() => onOutsideClick(path(['slug'], product))}>
+    <SideDrawer
+      id="ProductDrawer"
+      active={active}
+      direction="right"
+      onOutsideClick={() => onOutsideClick(path(['slug'], product))}
+    >
       { active && <ProductDetailsContainer {...product} /> }
     </SideDrawer>
   );

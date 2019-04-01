@@ -1,23 +1,26 @@
 import {
-  HIDE_NAV_CART_POPOVER,
-  SHOW_NAV_CART_POPOVER,
+  NAV_CART_POPOVER_HIDDEN,
+  NAV_CART_POPOVER_SHOWN,
+  NAV_DRAWER_SHOWN,
+  NAV_DRAWER_HIDDEN,
 } from 'Constants';
 import { createReducer } from 'helpers/reducers';
 
 const initialState = {
   cartShown: false,
   cartHighlight: {},
+  drawerActive: false,
 };
 
 const reducers = {
-  [HIDE_NAV_CART_POPOVER]: (state) => {
+  [NAV_CART_POPOVER_HIDDEN]: (state) => {
     return {
       ...state,
       cartShown: false,
       cartHighlight: {},
     };
   },
-  [SHOW_NAV_CART_POPOVER]: (state, action) => {
+  [NAV_CART_POPOVER_SHOWN]: (state, action) => {
     const { options = {} } = action;
     const { highlightType, id } = options;
     return {
@@ -27,6 +30,18 @@ const reducers = {
         id,
         type: highlightType,
       },
+    };
+  },
+  [NAV_DRAWER_HIDDEN]: (state) => {
+    return {
+      ...state,
+      drawerActive: false,
+    };
+  },
+  [NAV_DRAWER_SHOWN]: (state) => {
+    return {
+      ...state,
+      drawerActive: true,
     };
   },
 };

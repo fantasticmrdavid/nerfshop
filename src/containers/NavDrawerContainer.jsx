@@ -1,30 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Nav from 'components/Nav';
-import { hideCartPopover, showCartPopover, showNavDrawer } from 'actions/nav';
+import NavDrawer from 'components/NavDrawer';
+import { hideNavDrawer } from 'actions/nav';
 
-const NavContainer = (props) => {
-  return <Nav {...props} />;
+const NavDrawerContainer = (props) => {
+  return <NavDrawer {...props} />;
 };
 
 const mapStateToProps = (state) => {
   const { cart, nav } = state;
-  const { cartShown } = nav;
+  const { drawerActive } = nav;
   return {
+    active: drawerActive,
     cartCount: cart.contents.length > 0 ? cart.contents.reduce((a, p) => { return a + p.qty; }, 0) : 0,
-    cartShown,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    hideCart: () => dispatch(hideCartPopover()),
-    showCart: () => dispatch(showCartPopover()),
-    showDrawer: () => dispatch(showNavDrawer()),
+    closeDrawer: () => {
+      dispatch(hideNavDrawer());
+    },
+    onOutsideClick: () => {
+      dispatch(hideNavDrawer());
+    },
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(NavContainer);
+)(NavDrawerContainer);

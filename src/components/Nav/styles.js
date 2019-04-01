@@ -29,7 +29,8 @@ export const Container = styled.nav`
   top: 0px;
   left: 0px;
   z-index: 2;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto 45px;
   justify-content: space-between;
   align-items: center;
   padding: 1em;
@@ -37,7 +38,17 @@ export const Container = styled.nav`
   box-shadow: ${theme.dropShadow};
 
   ${media.tablet`
+    display: flex;
     padding: 1em 2em;
+  `};
+`;
+
+export const DesktopItem = styled.div`
+  display: none;
+  align-items: center;
+
+  ${media.tablet`
+    display: flex;
   `};
 `;
 
@@ -46,21 +57,38 @@ export const Item = styled.div`
   align-items: center;
 `;
 
+export const LeftSection = styled.div`
+  font-size: 1.35rem;
+  ${media.tablet`
+    display: none;
+  `};
+`;
+
 export const Logo = styled.div`
   position: relative;
   font-size: 2rem;
   text-transform: lowercase;
 `;
 
+export const MobileNavIcon = styled.div`
+  cursor: pointer;
+  color: ${props => (props.focused ? theme.colorRivalYellow : undefined)};
+  transition: 0.3s;
+`;
+
 export const RightSection = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: auto auto 45px;
   align-items: center;
   justify-content: flex-end;
   grid-column-gap: 25px;
-  font-size: 1.1rem;
-  width: 50%;
+  font-size: 1.35rem;
+
+  ${media.tablet`
+    grid-template-columns: auto auto 45px;
+    width: 50%;
+    font-size: 1.1rem;
+  `}
 `;
 
 export const Spacer = styled.div`
