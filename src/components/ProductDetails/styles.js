@@ -21,6 +21,7 @@ export const Container = styled.div`
   opacity: 0;
   animation: ${fadeIn} 0.3s normal linear;
   animation-fill-mode: forwards;
+  overflow-y: scroll;
 `;
 
 export const Content = styled.div`
@@ -28,7 +29,6 @@ export const Content = styled.div`
   left: 0px;
   bottom: 0px;
   width: 100%;
-  height: 30%;
   padding: 0 1em;
 `;
 
@@ -45,7 +45,7 @@ export const Features = styled.div`
 export const Image = styled.div`
   position: relative;
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   margin: 1em 0;
   background-image: ${props => `url(${props.src})`};
   background-size: contain;
