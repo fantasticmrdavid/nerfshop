@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
@@ -13,8 +12,6 @@ import * as styles from './styles';
 class ShippingForm extends Component {
   constructor(props) {
     super(props);
-    this.boundHandleSubmit = this.handleSubmit.bind(this);
-    this.boundSetCurrentBillingSameAsShipping = this.setCurrentBillingSameAsShipping.bind(this);
     const { billing } = props;
     const { billingSameAsShipping } = billing;
     this.state = {
@@ -27,9 +24,8 @@ class ShippingForm extends Component {
   }
 
   handleSubmit(values) {
-    const { history, submit } = this.props;
+    const { submit } = this.props;
     submit(values);
-    history.push('/checkout/payment');
   }
 
   render() {
@@ -73,7 +69,7 @@ class ShippingForm extends Component {
     return (
       <Formik
         initialValues={initialValues}
-        onSubmit={(values, action) => this.boundHandleSubmit(values, action)}
+        onSubmit={(values, action) => this.handleSubmit(values, action)}
         validationSchema={getSchema(currentBillingSameAsShipping)}
         render={(props) => {
           const {
@@ -151,7 +147,7 @@ class ShippingForm extends Component {
                     onBlur={handleBlur}
                     onChange={(e) => {
                       handleChange(e);
-                      this.boundSetCurrentBillingSameAsShipping(e);
+                      this.setCurrentBillingSameAsShipping(e);
                     }}
                     type="checkbox"
                     checked={values.billingSameAsShipping}
@@ -217,9 +213,8 @@ class ShippingForm extends Component {
 ShippingForm.propTypes = {
   billing: PropTypes.object,
   contactDetails: PropTypes.object,
-  history: PropTypes.object.isRequired,
   shipping: PropTypes.object,
   submit: PropTypes.func.isRequired,
 };
 
-export default withRouter(ShippingForm);
+export default ShippingForm;

@@ -4,6 +4,7 @@ import {
   PRODUCT_SELECTED,
 } from 'Constants';
 import { createReducer } from 'helpers/reducers';
+import { camelizeKeys } from 'helpers/array';
 
 const initialState = {
   listing: [],
@@ -14,7 +15,13 @@ const reducers = {
   [PRODUCT_LISTING_UPDATED]: (state, action) => {
     return {
       ...state,
-      listing: action.products,
+      listing: action.products.map((p) => {
+        return {
+          ...camelizeKeys(p),
+          id: p.product_id,
+          productId: undefined,
+        };
+      }),
     };
   },
   [PRODUCT_SELECTED]: (state, action) => {

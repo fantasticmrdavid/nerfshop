@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 import ShippingForm from 'components/ShippingForm';
 import { updateBillingDetails, updateContactDetails, updateShippingDetails } from 'actions/forms';
 
@@ -21,6 +22,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(updateContactDetails(data));
       dispatch(updateBillingDetails(data));
       dispatch(updateShippingDetails(data));
+      dispatch(push('/checkout/payment'));
     },
   };
 };

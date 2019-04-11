@@ -29,6 +29,8 @@ const PaymentDetails = (props) => {
     Subheading,
   } = styles;
 
+  if (products.length === 0) return null;
+
   return (
     <Fragment>
       <Helmet>

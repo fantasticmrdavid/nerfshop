@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom';
 import * as styles from './styles';
 
 const Cta = (props) => {
-  const { to } = props;
+  const { onClick, to } = props;
   const {
     Button,
   } = styles;
 
   const innerComp = <Button {...props} />;
 
-  return !!to ? <Link href={to} to={to}>{innerComp}</Link> : innerComp;
+  return !!to ? <Link onClick={onClick} href={to} to={to}>{innerComp}</Link> : innerComp;
 };
 
 Cta.propTypes = {
+  onClick: PropTypes.func,
   to: PropTypes.string,
 };
 

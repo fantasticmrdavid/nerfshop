@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const {
+  API_URL,
   NODE_ENV,
   PAYPAL_CLIENT_ID,
 } = process.env;
@@ -59,6 +60,7 @@ module.exports = {
     HtmlWebpackPluginConfig,
     new webpack.DefinePlugin({
       'process.env': {
+        API_URL: JSON.stringify(API_URL),
         NODE_ENV: JSON.stringify(NODE_ENV),
         PAYPAL_CLIENT_ID: JSON.stringify(PAYPAL_CLIENT_ID),
       },

@@ -1,20 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { path } from 'ramda';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProductDrawer from 'components/ProductDrawer';
 import { deselectProduct } from 'actions/products';
 
-const ProductDrawerContainer = (props) => {
-  return <ProductDrawer {...props} />;
-};
+const ProductDrawerContainer = props => <ProductDrawer {...props} />;
 
 const mapStateToProps = (state) => {
   const { products } = state;
-  const { selected } = products;
+  const { listing, selected } = products;
+  const activeId = path(['id'], selected);
+
   return {
-    active: !!path(['id'], selected),
-    product: selected,
+    active: !!activeId,
+    product: listing.find(p => p.id === activeId),
   };
 };
 
@@ -26,6 +27,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       if (!!slug) history.push(window.location.pathname.replace(`/${slug}`, ''));
     },
   };
+};
+
+ProductDrawerContainer.propTypes = {
+  active: PropTypes.bool,
 };
 
 export default withRouter(

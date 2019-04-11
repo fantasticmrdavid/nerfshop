@@ -11,6 +11,7 @@ const Checkout = (props) => {
     cart,
     contactDetails,
     products,
+    ready,
     section,
     shipping,
   } = props;
@@ -19,6 +20,8 @@ const Checkout = (props) => {
     Container,
     Heading,
   } = styles;
+
+  if (!ready) return null;
 
   return (
     <Container>
@@ -35,6 +38,7 @@ Checkout.propTypes = {
   cart: PropTypes.object.isRequired,
   contactDetails: PropTypes.object.isRequired,
   products: PropTypes.object.isRequired,
+  ready: PropTypes.bool,
   section: PropTypes.number,
   shipping: PropTypes.object,
 };

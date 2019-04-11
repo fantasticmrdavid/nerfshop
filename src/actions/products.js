@@ -3,13 +3,31 @@ import {
   PRODUCT_DESELECTED,
   PRODUCT_SELECTED,
 } from 'Constants';
-import staticProducts from 'data/products';
+import { localQuery } from 'helpers/api';
 
-export const fetchProductsStatic = () => (dispatch) => {
-  return dispatch({
-    type: PRODUCT_LISTING_UPDATED,
-    products: staticProducts,
-  });
+export const fetchProducts = () => (dispatch) => {
+  return localQuery(`{
+    search(type: "blaster") {
+      product_id
+      name
+      slug
+      type
+      series
+      price
+      description
+      images
+      color
+      capacity
+      firing_mechanism
+      priming
+      loading_mechanism
+      slamfire
+    }
+  }`)
+    .then(res => dispatch({
+      type: PRODUCT_LISTING_UPDATED,
+      products: res.search,
+    }));
 };
 
 export const deselectProduct = () => (dispatch) => {
