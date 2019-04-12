@@ -7,7 +7,7 @@ import { localQuery } from 'helpers/api';
 
 export const fetchProducts = () => (dispatch) => {
   return localQuery(`{
-    search(type: "blaster") {
+    products {
       product_id
       name
       slug
@@ -26,7 +26,7 @@ export const fetchProducts = () => (dispatch) => {
   }`)
     .then(res => dispatch({
       type: PRODUCT_LISTING_UPDATED,
-      products: res.search,
+      products: res.products,
     }));
 };
 
